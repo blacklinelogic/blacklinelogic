@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero.jpg";
+import logoAsset from "@/assets/blackline-logo.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -40,12 +41,9 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/50">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-2.5 group">
-            <div className="w-6 h-6 relative">
-              <div className="absolute inset-0 border border-primary/60 rotate-45" />
-              <div className="absolute inset-1.5 bg-primary" />
-            </div>
-            <span className="font-mono text-[13px] tracking-[0.2em] uppercase">BlackLine<span className="text-primary">.</span>Logic</span>
+          <a href="#top" className="flex items-center gap-3 group">
+            <img src={logoAsset.url} alt="BlackLine Logic" width={32} height={32} className="w-8 h-8 object-contain" />
+            <span className="font-mono text-[13px] tracking-[0.2em] uppercase hidden sm:inline">BlackLine<span className="text-primary">.</span>Logic</span>
           </a>
           <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground">
             <a href="#services" className="hover:text-foreground transition-colors">Services</a>
