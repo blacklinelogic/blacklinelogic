@@ -234,8 +234,6 @@ function Index() {
             <img src={logoAsset.url} alt="" width={20} height={20} className="w-5 h-5 object-contain" />
             <span>© {new Date().getFullYear()} BLACKLINE LOGIC</span>
           </div>
-            <span>© {new Date().getFullYear()} BLACKLINE LOGIC</span>
-          </div>
           <div>CUSTOM AI AUTOMATION · BUILT TO OPERATE</div>
         </div>
       </footer>
