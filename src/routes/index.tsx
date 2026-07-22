@@ -231,10 +231,9 @@ function Index() {
       <footer className="border-t border-border py-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-xs text-muted-foreground font-mono tracking-wider">
           <div className="flex items-center gap-2.5">
-            <div className="w-4 h-4 relative">
-              <div className="absolute inset-0 border border-primary/60 rotate-45" />
-              <div className="absolute inset-1 bg-primary" />
-            </div>
+            <img src={logoAsset.url} alt="" width={20} height={20} className="w-5 h-5 object-contain" />
+            <span>© {new Date().getFullYear()} BLACKLINE LOGIC</span>
+          </div>
             <span>© {new Date().getFullYear()} BLACKLINE LOGIC</span>
           </div>
           <div>CUSTOM AI AUTOMATION · BUILT TO OPERATE</div>
