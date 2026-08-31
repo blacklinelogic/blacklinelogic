@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero.jpg";
-import logoAsset from "@/assets/blackline-logo.asset.json";
+import logoAsset from "@/assets/blacklinelogic_logo.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
