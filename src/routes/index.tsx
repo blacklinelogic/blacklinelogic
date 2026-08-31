@@ -207,10 +207,10 @@ function Index() {
             A 30-minute discovery call. We map where automation would actually move the needle for your business — free, no pitch deck.
           </p>
           <a
-            href="mailto:hello@blacklinelogic.com"
+            href="mailto:blacklinelogic@outlook.com"
             className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-md font-medium hover:shadow-[var(--shadow-glow)] transition-all group"
           >
-            hello@blacklinelogic.com
+            blacklinelogic@outlook.com
             <span className="transition-transform group-hover:translate-x-1">→</span>
           </a>
           <div className="mt-16 grid grid-cols-3 gap-6 max-w-2xl mx-auto text-left border-t border-border pt-10">
