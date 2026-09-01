@@ -9,7 +9,7 @@ export const policy: { intro: PolicyBlock[]; sections: PolicySection[] } = {
   "intro": [
     {
       "type": "p",
-      "text": "Effective Date: September 1, 2026 Last Updated: September 1, 2026 BlackLine Logic (“BlackLine Logic,” “BlackLine,” “we,” “us,” or “our”) provides artificial intelligence, workflow automation, communication, scheduling, integration, and related technology services to businesses."
+      "text": "BlackLine Logic (“BlackLine Logic,” “BlackLine,” “we,” “us,” or “our”) provides artificial intelligence, workflow automation, communication, scheduling, integration, and related technology services to businesses."
     },
     {
       "type": "p",
