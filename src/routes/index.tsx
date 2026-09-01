@@ -234,7 +234,13 @@ function Index() {
             <img src={logoAsset} alt="" width={20} height={20} className="w-5 h-5 object-contain" />
             <span>© {new Date().getFullYear()} BLACKLINE LOGIC</span>
           </div>
-          <div>CUSTOM AI AUTOMATION · BUILT TO OPERATE</div>
+          <div className="flex items-center gap-5">
+            <span>CUSTOM AI AUTOMATION · BUILT TO OPERATE</span>
+            <Link to="/privacy" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
+              PRIVACY
+            </Link>
+          </div>
+
         </div>
       </footer>
     </div>
