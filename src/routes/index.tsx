@@ -239,6 +239,9 @@ function Index() {
             <Link to="/privacy" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
               PRIVACY
             </Link>
+            <Link to="/terms" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
+              TERMS
+            </Link>
           </div>
 
         </div>

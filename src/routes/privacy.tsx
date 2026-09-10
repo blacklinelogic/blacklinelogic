@@ -105,9 +105,14 @@ function PrivacyPage() {
       <footer className="border-t border-border py-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-xs text-muted-foreground font-mono tracking-wider">
           <span>© {new Date().getFullYear()} BLACKLINE LOGIC</span>
-          <Link to="/" className="hover:text-foreground transition-colors">
-            HOME
-          </Link>
+          <div className="flex items-center gap-5">
+            <Link to="/terms" className="hover:text-foreground transition-colors">
+              TERMS
+            </Link>
+            <Link to="/" className="hover:text-foreground transition-colors">
+              HOME
+            </Link>
+          </div>
         </div>
       </footer>
     </div>
