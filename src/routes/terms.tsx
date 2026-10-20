@@ -78,9 +78,7 @@ function TermsPage() {
         <div className="font-mono text-[11px] tracking-[0.25em] uppercase text-primary mb-6">
           Legal
         </div>
-        <h1 className="font-display text-5xl md:text-6xl leading-[1] mb-6">
-          Terms and Conditions
-        </h1>
+        <h1 className="font-display text-5xl md:text-6xl leading-[1] mb-6">Terms and Conditions</h1>
         <div className="flex flex-wrap gap-x-8 gap-y-1 font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground border-b border-border pb-8 mb-10">
           <span>Effective: September 1, 2026</span>
           <span>Last updated: September 1, 2026</span>
