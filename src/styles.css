@@ -61,8 +61,12 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -72,7 +76,11 @@
   }
 }
 
-@utility font-display { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.02em; }
+@utility font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
 @utility text-gradient-amber {
   background: var(--gradient-amber);
   -webkit-background-clip: text;
@@ -86,13 +94,19 @@
   background-size: 64px 64px;
 }
 @utility hairline-x {
-  &::before, &::after {
+  &::before,
+  &::after {
     content: "";
     position: absolute;
-    left: 0; right: 0;
+    left: 0;
+    right: 0;
     height: 1px;
     background: linear-gradient(to right, transparent, oklch(1 0 0 / 0.12), transparent);
   }
-  &::before { top: 0; }
-  &::after { bottom: 0; }
+  &::before {
+    top: 0;
+  }
+  &::after {
+    bottom: 0;
+  }
 }
