@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "blacklinelogic.com",
+  "Id": "905992b4-9151-4649-8270-366a02d3a10a"
+}
