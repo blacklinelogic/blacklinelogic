@@ -701,7 +701,7 @@ export const policy: { intro: PolicyBlock[]; sections: PolicySection[] } = {
         },
         {
           "type": "p",
-          "text": "To submit a request, email blacklinelogic@gmail.com with the subject line “Privacy Request.” Please include enough information for us to understand and evaluate your request. We may need to verify your identity before responding. If BlackLine Logic processes the information solely for one of our clients, we may direct your request to that client or assist the client with responding. We will not unlawfully discriminate against you for exercising an applicable privacy right."
+          "text": "To submit a request, email info@blacklinelogic.com with the subject line “Privacy Request.” Please include enough information for us to understand and evaluate your request. We may need to verify your identity before responding. If BlackLine Logic processes the information solely for one of our clients, we may direct your request to that client or assist the client with responding. We will not unlawfully discriminate against you for exercising an applicable privacy right."
         },
         {
           "type": "p",
@@ -824,7 +824,7 @@ export const policy: { intro: PolicyBlock[]; sections: PolicySection[] } = {
       "blocks": [
         {
           "type": "p",
-          "text": "For privacy questions, concerns, or requests, contact: BlackLine Logic Email: blacklinelogic@gmail.com Phone: 816-315-7562 Website: blacklinelogic.com Use the subject line “Privacy Request” when contacting us by email. If your request concerns a business using BlackLine Logic technology, identify that business and provide enough information for us to locate and evaluate the request."
+          "text": "For privacy questions, concerns, or requests, contact: BlackLine Logic Email: info@blacklinelogic.com Phone: 816-315-7562 Website: blacklinelogic.com Use the subject line “Privacy Request” when contacting us by email. If your request concerns a business using BlackLine Logic technology, identify that business and provide enough information for us to locate and evaluate the request."
         }
       ]
     }
