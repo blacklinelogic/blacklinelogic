@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/blacklinelogic_logo.png";
 
-export const CONTACT_EMAIL = "blacklinelogic@gmail.com";
+export const CONTACT_EMAIL = "info@blacklinelogic.com";
 
 type NavItem = { href: string; label: string };
 
