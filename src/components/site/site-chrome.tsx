@@ -17,9 +17,9 @@ export function SiteHeader({
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/50">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-6">
         <Link to="/" className="flex items-center gap-3 group">
-          <img src={logoAsset} alt="BlackLine Logic" width={32} height={32} className="w-8 h-8 object-contain" />
-          <span className="font-mono text-[13px] tracking-[0.2em] uppercase hidden sm:inline">
-            BlackLine<span className="text-primary">.</span>Logic
+          <img src={logoAsset} alt="BlackLine Logic" width={32} height={32} className="w-9 h-9 object-contain" />
+          <span className="font-display text-[17px] tracking-[0.02em] uppercase hidden sm:inline" style={{ fontStretch: "125%" }}>
+            Blackline<span className="text-accent">Logic</span>
           </span>
         </Link>
         <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground">

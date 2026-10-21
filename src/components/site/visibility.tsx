@@ -74,11 +74,11 @@ export function VisibilitySteps() {
         <div key={s.title} className="grid md:grid-cols-[120px_1fr_auto] gap-4 md:gap-8 items-start py-8 border-b border-border">
           <Trace variant={i as 0 | 1 | 2} />
           <div className="min-w-0">
-            <h3 className="font-display text-3xl mb-2">{s.title}</h3>
+            <h3 className="font-display text-2xl mb-2">{s.title}</h3>
             <p className="text-muted-foreground leading-relaxed max-w-2xl">{s.body}</p>
           </div>
           <div className="md:text-right">
-            <div className="font-display text-4xl">{s.price}</div>
+            <div className="font-display text-3xl">{s.price}</div>
             {s.unit && <div className="text-sm text-muted-foreground">{s.unit}</div>}
           </div>
         </div>
@@ -102,7 +102,7 @@ export function FixesGrid() {
       {fixes.map(([tag, t, d]) => (
         <div key={t} className="bg-background p-8">
           <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-primary">{tag}</span>
-          <h3 className="font-display text-2xl mt-3 mb-2">{t}</h3>
+          <h3 className="font-display text-xl mt-3 mb-2">{t}</h3>
           <p className="text-muted-foreground leading-relaxed text-[15px]">{d}</p>
         </div>
       ))}
@@ -114,14 +114,14 @@ export function VisibilityStats() {
   return (
     <div className="grid sm:grid-cols-2 gap-8">
       <div>
-        <div className="font-display text-5xl text-primary">45%</div>
+        <div className="font-display text-5xl text-accent">45%</div>
         <p className="mt-2 text-muted-foreground">
           of consumers used an AI tool to find a local business in the past year, up from 6% the year before.
         </p>
         <p className="mt-1 text-xs text-muted-foreground/70">BrightLocal, Local Consumer Review Survey 2026</p>
       </div>
       <div>
-        <div className="font-display text-5xl text-primary">1.2%</div>
+        <div className="font-display text-5xl text-accent">1.2%</div>
         <p className="mt-2 text-muted-foreground">of local businesses get recommended by ChatGPT.</p>
         <p className="mt-1 text-xs text-muted-foreground/70">SOCi, Local Visibility Index 2026</p>
       </div>

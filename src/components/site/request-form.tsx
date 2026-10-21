@@ -84,7 +84,7 @@ export function RequestForm({
   if (status === "sent") {
     return (
       <div className="border border-primary/50 bg-primary/5 rounded-lg p-8" role="status">
-        <div className="font-display text-3xl mb-3">Request received.</div>
+        <div className="font-display text-2xl mb-3">Request received.</div>
         <p className="text-muted-foreground leading-relaxed">{successText}</p>
       </div>
     );
@@ -113,7 +113,7 @@ export function RequestForm({
       <button
         type="submit"
         disabled={status === "sending"}
-        className="sm:col-span-2 inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:shadow-[var(--shadow-glow)] transition-all disabled:opacity-60"
+        className="sm:col-span-2 inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all disabled:opacity-60"
       >
         {status === "sending" ? "Sending…" : submitLabel}
         <span>→</span>

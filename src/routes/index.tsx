@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImg from "@/assets/hero.jpg";
 import { SiteHeader, SiteFooter, Eyebrow, CONTACT_EMAIL } from "@/components/site/site-chrome";
 import { RequestForm, intakeFields } from "@/components/site/request-form";
 import { AiAnswerMock, VisibilitySteps } from "@/components/site/visibility";
@@ -82,14 +81,8 @@ function Index() {
         cta={{ href: "#start", label: "Get a quote" }}
       />
 
-      <section id="top" className="relative min-h-[92vh] flex items-center overflow-hidden pt-16">
-        <div className="absolute inset-0">
-          <img src={heroImg} alt="" width={1920} height={1200} className="w-full h-full object-cover opacity-60" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
-          <div className="absolute inset-0 grid-lines opacity-40" />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-6 py-24 w-full">
+      <section id="top" className="pt-16">
+        <div className="max-w-7xl mx-auto px-6 pt-24 pb-20 w-full">
           <div className="max-w-4xl">
             <a
               href="#visibility"
@@ -102,18 +95,14 @@ function Index() {
               <span className="w-8 h-px bg-primary" />
               <span>AI Automation Studio · Kansas City</span>
             </div>
-            <h1 className="font-display text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-8">
-              The line between
-              <br />
-              <span className="italic text-gradient-amber">effort</span> and
-              <br />
-              output.
+            <h1 className="font-display text-5xl md:text-7xl leading-[1.02] mb-8">
+              The line between effort and <span className="text-accent">output.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
               BlackLine Logic builds custom AI automation systems tailored to the day-to-day operations of your business. Less busywork. More leverage. Fully yours. Built for home-service contractors who'd rather be on the job than at a desk.
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <a href="#start" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:shadow-[var(--shadow-glow)] transition-all">
+              <a href="#start" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all">
                 Get a fixed quote in one business day
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
@@ -124,17 +113,13 @@ function Index() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 inset-x-0 max-w-7xl mx-auto px-6 flex items-center justify-between font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground">
-          <span>Est. Systems for Modern Operators</span>
-          <span className="hidden md:inline">Scroll ↓</span>
-        </div>
       </section>
 
       <section className="relative border-y border-border">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
           {stats.map(([n, l]) => (
             <div key={l} className="py-10 px-6 first:pl-0">
-              <div className="font-display text-4xl md:text-5xl text-primary">{n}</div>
+              <div className="font-display text-4xl md:text-5xl text-accent">{n}</div>
               <div className="mt-2 text-xs uppercase tracking-[0.15em] text-muted-foreground leading-relaxed">{l}</div>
             </div>
           ))}
@@ -144,13 +129,13 @@ function Index() {
         </p>
       </section>
 
-      <section id="services" className="relative py-32">
+      <section id="services" className="relative py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-12 gap-12 mb-20">
             <div className="md:col-span-5">
               <Eyebrow>§ 01 — Services</Eyebrow>
-              <h2 className="font-display text-5xl md:text-6xl leading-[1]">
-                Automation, <span className="italic">shaped</span> to your business.
+              <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
+                Automation, shaped to your business.
               </h2>
             </div>
             <div className="md:col-span-6 md:col-start-7 flex items-end">
@@ -167,7 +152,7 @@ function Index() {
                   <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">{s.n}</span>
                   <span className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h3 className="font-display text-3xl mb-4">{s.title}</h3>
+                <h3 className="font-display text-2xl mb-4">{s.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{s.body}</p>
               </div>
             ))}
@@ -177,12 +162,12 @@ function Index() {
                   <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">05</span>
                   <span className="rounded-full bg-primary text-primary-foreground font-mono text-[10px] tracking-[0.15em] px-2 py-0.5">NEW</span>
                 </div>
-                <h3 className="font-display text-3xl mb-4">AI Search Visibility</h3>
+                <h3 className="font-display text-2xl mb-4">AI Search Visibility</h3>
                 <p className="text-muted-foreground leading-relaxed max-w-3xl">
                   Homeowners now ask ChatGPT and Google's AI who to hire. We test those answers for your trade and town, show you who gets named instead, and fix why.
                 </p>
               </div>
-              <a href="#visibility" className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:shadow-[var(--shadow-glow)] transition-all whitespace-nowrap">
+              <a href="#visibility" className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all whitespace-nowrap">
                 See how it works →
               </a>
             </div>
@@ -190,13 +175,13 @@ function Index() {
         </div>
       </section>
 
-      <section id="packages" className="relative py-32 border-t border-border bg-card/30">
+      <section id="packages" className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-12 gap-12 mb-16">
             <div className="md:col-span-6">
               <Eyebrow>§ 02 — Packages</Eyebrow>
-              <h2 className="font-display text-5xl md:text-6xl leading-[1]">
-                Fixed prices. <span className="italic">No surprises.</span>
+              <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
+                Fixed prices. No surprises.
               </h2>
             </div>
             <div className="md:col-span-5 md:col-start-8 flex items-end">
@@ -208,9 +193,9 @@ function Index() {
           <div className="grid md:grid-cols-3 gap-px bg-border border border-border">
             {packages.map((p) => (
               <div key={p.name} className="bg-background p-10 flex flex-col">
-                <h3 className="font-display text-3xl mb-6">{p.name}</h3>
+                <h3 className="font-display text-2xl mb-6">{p.name}</h3>
                 <div className="mb-6">
-                  <span className="font-display text-5xl">{p.setup}</span>
+                  <span className="font-display text-4xl">{p.setup}</span>
                   {p.monthly && <span className="text-muted-foreground"> + {p.monthly}/mo</span>}
                   <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mt-2">{p.unit}</div>
                 </div>
@@ -224,13 +209,13 @@ function Index() {
         </div>
       </section>
 
-      <section id="visibility" className="relative py-32 border-t border-border">
+      <section id="visibility" className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
             <div>
               <Eyebrow>§ 03 — AI Search Visibility</Eyebrow>
-              <h2 className="font-display text-5xl md:text-6xl leading-[1] mb-8">
-                Homeowners are asking AI who to call. <span className="italic text-gradient-amber">Does it say your name?</span>
+              <h2 className="font-display text-4xl md:text-5xl leading-[1.05] mb-8">
+                Homeowners are asking AI who to call. <span className="text-accent">Does it say your name?</span>
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 We ask ChatGPT, Gemini, Perplexity and Google AI Mode the questions your customers ask, show you which contractors get named instead, and fix the reasons you're left out.
@@ -246,7 +231,7 @@ function Index() {
             <Link
               to="/ai-visibility"
               hash="scan"
-              className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:shadow-[var(--shadow-glow)] transition-all"
+              className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all"
             >
               Get your free AI scan →
             </Link>
@@ -254,12 +239,12 @@ function Index() {
         </div>
       </section>
 
-      <section id="process" className="relative py-32 border-t border-border bg-card/30">
+      <section id="process" className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-20 max-w-3xl">
             <Eyebrow>§ 04 — Process</Eyebrow>
-            <h2 className="font-display text-5xl md:text-6xl leading-[1]">
-              Four steps. <span className="italic">No theater.</span>
+            <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
+              Four steps. No theater.
             </h2>
           </div>
 
@@ -267,7 +252,7 @@ function Index() {
             {process.map((p, i) => (
               <div key={p.k} className="bg-background grid md:grid-cols-12 gap-6 items-baseline py-8 px-6 md:px-10 hover:bg-card transition-colors group">
                 <div className="md:col-span-1 font-mono text-xs text-muted-foreground">0{i + 1}</div>
-                <div className="md:col-span-3 font-display text-3xl group-hover:text-primary transition-colors">{p.k}</div>
+                <div className="md:col-span-3 font-display text-2xl group-hover:text-primary transition-colors">{p.k}</div>
                 <div className="md:col-span-8 text-muted-foreground text-lg leading-relaxed">{p.v}</div>
               </div>
             ))}
@@ -275,12 +260,12 @@ function Index() {
         </div>
       </section>
 
-      <section id="principles" className="relative py-32 border-t border-border">
+      <section id="principles" className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-16">
           <div className="md:col-span-5 md:sticky md:top-24 self-start">
             <Eyebrow>§ 05 — Principles</Eyebrow>
-            <h2 className="font-display text-5xl md:text-6xl leading-[1] mb-8">
-              How we <span className="italic">think</span> about your systems.
+            <h2 className="font-display text-4xl md:text-5xl leading-[1.05] mb-8">
+              How we think about your systems.
             </h2>
             <p className="text-muted-foreground leading-relaxed">
               Automation should be quiet infrastructure — reliable, understandable, and yours to keep. We build to that standard.
@@ -302,16 +287,12 @@ function Index() {
         </div>
       </section>
 
-      <section id="start" className="relative py-32 border-t border-border overflow-hidden">
-        <div className="absolute inset-0 grid-lines opacity-30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+      <section id="start" className="relative py-24 border-t border-border overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
           <div>
             <Eyebrow>§ 06 — Start</Eyebrow>
-            <h2 className="font-display text-5xl md:text-7xl leading-[0.95] mb-8">
-              Let's find your
-              <br />
-              <span className="italic text-gradient-amber">black line.</span>
+            <h2 className="font-display text-4xl md:text-6xl leading-[1.02] mb-8">
+              Let's find your <span className="text-accent">black line.</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed">
               Tell us what eats your week. You'll get a written scope and a fixed price within one business day — no call, no pitch deck.
