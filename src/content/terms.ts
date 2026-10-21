@@ -307,7 +307,7 @@ export const terms: { intro: PolicyBlock[]; sections: PolicySection[] } = {
         },
         {
           "type": "p",
-          "text": "Cancellation notices must be sent to blacklinelogic@outlook.com or submitted through another cancellation method expressly provided by BlackLine Logic."
+          "text": "Cancellation notices must be sent to blacklinelogic@gmail.com or submitted through another cancellation method expressly provided by BlackLine Logic."
         },
         {
           "type": "p",
@@ -1170,7 +1170,7 @@ export const terms: { intro: PolicyBlock[]; sections: PolicySection[] } = {
         },
         {
           "type": "p",
-          "text": "Email: blacklinelogic@outlook.com"
+          "text": "Email: blacklinelogic@gmail.com"
         },
         {
           "type": "p",
@@ -1298,7 +1298,7 @@ export const terms: { intro: PolicyBlock[]; sections: PolicySection[] } = {
         },
         {
           "type": "p",
-          "text": "Email: blacklinelogic@outlook.com"
+          "text": "Email: blacklinelogic@gmail.com"
         },
         {
           "type": "p",

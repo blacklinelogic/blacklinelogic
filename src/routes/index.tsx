@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImg from "@/assets/hero.jpg";
-import logoAsset from "@/assets/blacklinelogic_logo.png";
+import { SiteHeader, SiteFooter, Eyebrow, CONTACT_EMAIL } from "@/components/site/site-chrome";
+import { RequestForm, intakeFields } from "@/components/site/request-form";
+import { AiAnswerMock, VisibilitySteps } from "@/components/site/visibility";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -29,98 +30,112 @@ const services = [
   },
 ];
 
+const packages = [
+  {
+    name: "Lead Catcher",
+    setup: "$497",
+    monthly: "$197",
+    unit: "setup + per month",
+    body: "Missed calls get an instant text back. Web-form leads get a reply within a minute. Leads who go quiet get two follow-ups. You see every one in one place.",
+  },
+  {
+    name: "Review Engine",
+    setup: "$297",
+    monthly: "$97",
+    unit: "setup + per month",
+    body: "A review request texted after every finished job, with a reminder if they don't respond. More reviews, steadily, without anyone remembering to ask.",
+  },
+  {
+    name: "Custom Build",
+    setup: "From $1,500",
+    monthly: "",
+    unit: "fixed quote",
+    body: "Quote follow-ups, job scheduling, CRM and invoice syncing, or whatever eats your week. Scoped in writing, priced up front, one round of changes included.",
+  },
+];
+
 const process = [
-  { k: "Discover", v: "We map your day-to-day operations and find the friction that costs you hours." },
-  { k: "Design", v: "A blueprint tailored to your workflow — not a template, not a SaaS retrofit." },
-  { k: "Deploy", v: "We build, integrate, and roll it out with your team. Quiet, precise, reversible." },
-  { k: "Refine", v: "We stay on to measure results and evolve the system as your business changes." },
+  { k: "Intake", v: "You describe the problem in a short written form: your tools, the task, what it costs you when it slips." },
+  { k: "Quote", v: "Within one business day you get a one-page scope: what we'll build, what it won't do, and a fixed price." },
+  { k: "Build", v: "We build and test it in accounts in your name, then walk you through setup step by step by email." },
+  { k: "Go live", v: "We run live test leads with you watching, switch it on, and stay on to measure and refine." },
+];
+
+const stats: [string, string][] = [
+  ["52%", "Of callers to home-service businesses reach a person"],
+  ["45%", "Of consumers used AI to find a local business last year"],
+  ["1 day", "From intake form to fixed quote"],
+  ["100%", "Custom-built, in accounts you own"],
 ];
 
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/50">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-3 group">
-            <img src={logoAsset} alt="BlackLine Logic" width={32} height={32} className="w-8 h-8 object-contain" />
-            <span className="font-mono text-[13px] tracking-[0.2em] uppercase hidden sm:inline">BlackLine<span className="text-primary">.</span>Logic</span>
-          </a>
-          <nav className="hidden md:flex items-center gap-9 text-[13px] text-muted-foreground">
-            <a href="#services" className="hover:text-foreground transition-colors">Services</a>
-            <a href="#process" className="hover:text-foreground transition-colors">Process</a>
-            <a href="#principles" className="hover:text-foreground transition-colors">Principles</a>
-            <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
-          </nav>
-          <a href="#contact" className="text-[13px] font-medium px-4 py-2 rounded-md border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-all">
-            Book a call
-          </a>
-        </div>
-      </header>
+      <SiteHeader
+        nav={[
+          { href: "#services", label: "Services" },
+          { href: "#packages", label: "Packages" },
+          { href: "#visibility", label: "AI Visibility" },
+          { href: "#process", label: "Process" },
+        ]}
+        cta={{ href: "#start", label: "Get a quote" }}
+      />
 
-      <section id="top" className="relative min-h-screen flex items-center overflow-hidden pt-16">
-        <div className="absolute inset-0">
-          <img src={heroImg} alt="" width={1920} height={1200} className="w-full h-full object-cover opacity-60" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
-          <div className="absolute inset-0 grid-lines opacity-40" />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-6 py-24 w-full">
+      <section id="top" className="pt-16">
+        <div className="max-w-7xl mx-auto px-6 pt-24 pb-20 w-full">
           <div className="max-w-4xl">
+            <a
+              href="#visibility"
+              className="inline-flex items-center gap-3 mb-8 rounded-full border border-border bg-card/70 pl-1.5 pr-4 py-1.5 text-sm hover:border-primary transition-colors"
+            >
+              <span className="rounded-full bg-primary text-primary-foreground font-mono text-[10px] tracking-[0.15em] px-2 py-0.5">NEW</span>
+              Does ChatGPT recommend your business? Free AI scan →
+            </a>
             <div className="flex items-center gap-3 mb-8 font-mono text-[11px] tracking-[0.25em] uppercase text-muted-foreground">
               <span className="w-8 h-px bg-primary" />
-              <span>AI Automation Studio</span>
+              <span>AI Automation Studio · Kansas City</span>
             </div>
-            <h1 className="font-display text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-8">
-              The line between
-              <br />
-              <span className="italic text-gradient-amber">effort</span> and
-              <br />
-              output.
+            <h1 className="font-display text-5xl md:text-7xl leading-[1.02] mb-8">
+              The line between effort and <span className="text-accent">output.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-              BlackLine Logic builds custom AI automation systems tailored to the day-to-day operations of your business. Less busywork. More leverage. Fully yours.
+              BlackLine Logic builds custom AI automation systems tailored to the day-to-day operations of your business. Less busywork. More leverage. Fully yours. Built for home-service contractors who'd rather be on the job than at a desk.
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <a href="#contact" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:shadow-[var(--shadow-glow)] transition-all">
-                Start with a discovery call
+              <a href="#start" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all">
+                Get a fixed quote in one business day
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
-              <a href="#services" className="inline-flex items-center gap-3 px-6 py-3.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                What we build
+              <a href="#packages" className="inline-flex items-center gap-3 px-6 py-3.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                See packages and prices
               </a>
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-8 inset-x-0 max-w-7xl mx-auto px-6 flex items-center justify-between font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground">
-          <span>Est. Systems for Modern Operators</span>
-          <span className="hidden md:inline">Scroll ↓</span>
-        </div>
       </section>
 
       <section className="relative border-y border-border">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
-          {[
-            ["40+", "Hours reclaimed / week"],
-            ["100%", "Custom-built systems"],
-            ["<30d", "Typical deployment"],
-            ["24/7", "Automation uptime"],
-          ].map(([n, l]) => (
+          {stats.map(([n, l]) => (
             <div key={l} className="py-10 px-6 first:pl-0">
-              <div className="font-display text-4xl md:text-5xl text-primary">{n}</div>
-              <div className="mt-2 text-xs uppercase tracking-[0.15em] text-muted-foreground">{l}</div>
+              <div className="font-display text-4xl md:text-5xl text-accent">{n}</div>
+              <div className="mt-2 text-xs uppercase tracking-[0.15em] text-muted-foreground leading-relaxed">{l}</div>
             </div>
           ))}
         </div>
+        <p className="max-w-7xl mx-auto px-6 pb-6 text-[11px] text-muted-foreground/60">
+          Sources: Invoca Home Services Benchmarks 2026; BrightLocal Local Consumer Review Survey 2026.
+        </p>
       </section>
 
-      <section id="services" className="relative py-32">
+      <section id="services" className="relative py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-12 gap-12 mb-20">
             <div className="md:col-span-5">
-              <div className="font-mono text-[11px] tracking-[0.25em] uppercase text-primary mb-6">§ 01 — Services</div>
-              <h2 className="font-display text-5xl md:text-6xl leading-[1]">
-                Automation, <span className="italic">shaped</span> to your business.
+              <Eyebrow>§ 01 — Services</Eyebrow>
+              <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
+                Automation, shaped to your business.
               </h2>
             </div>
             <div className="md:col-span-6 md:col-start-7 flex items-end">
@@ -137,20 +152,99 @@ function Index() {
                   <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">{s.n}</span>
                   <span className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h3 className="font-display text-3xl mb-4">{s.title}</h3>
+                <h3 className="font-display text-2xl mb-4">{s.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{s.body}</p>
+              </div>
+            ))}
+            <div className="md:col-span-2 bg-primary/5 p-10 md:p-12 grid md:grid-cols-[1fr_auto] gap-8 items-center">
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">05</span>
+                  <span className="rounded-full bg-primary text-primary-foreground font-mono text-[10px] tracking-[0.15em] px-2 py-0.5">NEW</span>
+                </div>
+                <h3 className="font-display text-2xl mb-4">AI Search Visibility</h3>
+                <p className="text-muted-foreground leading-relaxed max-w-3xl">
+                  Homeowners now ask ChatGPT and Google's AI who to hire. We test those answers for your trade and town, show you who gets named instead, and fix why.
+                </p>
+              </div>
+              <a href="#visibility" className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all whitespace-nowrap">
+                See how it works →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="packages" className="relative py-24 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-12 gap-12 mb-16">
+            <div className="md:col-span-6">
+              <Eyebrow>§ 02 — Packages</Eyebrow>
+              <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
+                Fixed prices. No surprises.
+              </h2>
+            </div>
+            <div className="md:col-span-5 md:col-start-8 flex items-end">
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Every automation runs in accounts in your name. Tool costs (usually $25–40 a month) are billed to you directly, and you keep everything if you ever leave.
+              </p>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-px bg-border border border-border">
+            {packages.map((p) => (
+              <div key={p.name} className="bg-background p-10 flex flex-col">
+                <h3 className="font-display text-2xl mb-6">{p.name}</h3>
+                <div className="mb-6">
+                  <span className="font-display text-4xl">{p.setup}</span>
+                  {p.monthly && <span className="text-muted-foreground"> + {p.monthly}/mo</span>}
+                  <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mt-2">{p.unit}</div>
+                </div>
+                <p className="text-muted-foreground leading-relaxed flex-1">{p.body}</p>
+                <a href="#start" className="mt-8 text-sm font-medium text-primary hover:underline underline-offset-4">
+                  Request a quote →
+                </a>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="process" className="relative py-32 border-t border-border bg-card/30">
+      <section id="visibility" className="relative py-24 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+            <div>
+              <Eyebrow>§ 03 — AI Search Visibility</Eyebrow>
+              <h2 className="font-display text-4xl md:text-5xl leading-[1.05] mb-8">
+                Homeowners are asking AI who to call. <span className="text-accent">Does it say your name?</span>
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                We ask ChatGPT, Gemini, Perplexity and Google AI Mode the questions your customers ask, show you which contractors get named instead, and fix the reasons you're left out.
+              </p>
+            </div>
+            <AiAnswerMock />
+          </div>
+          <VisibilitySteps />
+          <div className="mt-10 flex flex-wrap items-center justify-between gap-6">
+            <p className="text-sm text-muted-foreground max-w-2xl">
+              Nobody outside the AI companies controls these answers, so we never guarantee placement. We report real counts, like "named in 2 of 3 runs," with every answer saved.
+            </p>
+            <Link
+              to="/ai-visibility"
+              hash="scan"
+              className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all"
+            >
+              Get your free AI scan →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section id="process" className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-20 max-w-3xl">
-            <div className="font-mono text-[11px] tracking-[0.25em] uppercase text-primary mb-6">§ 02 — Process</div>
-            <h2 className="font-display text-5xl md:text-6xl leading-[1]">
-              Four steps. <span className="italic">No theater.</span>
+            <Eyebrow>§ 04 — Process</Eyebrow>
+            <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
+              Four steps. No theater.
             </h2>
           </div>
 
@@ -158,7 +252,7 @@ function Index() {
             {process.map((p, i) => (
               <div key={p.k} className="bg-background grid md:grid-cols-12 gap-6 items-baseline py-8 px-6 md:px-10 hover:bg-card transition-colors group">
                 <div className="md:col-span-1 font-mono text-xs text-muted-foreground">0{i + 1}</div>
-                <div className="md:col-span-3 font-display text-3xl group-hover:text-primary transition-colors">{p.k}</div>
+                <div className="md:col-span-3 font-display text-2xl group-hover:text-primary transition-colors">{p.k}</div>
                 <div className="md:col-span-8 text-muted-foreground text-lg leading-relaxed">{p.v}</div>
               </div>
             ))}
@@ -166,12 +260,12 @@ function Index() {
         </div>
       </section>
 
-      <section id="principles" className="relative py-32 border-t border-border">
+      <section id="principles" className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-16">
           <div className="md:col-span-5 md:sticky md:top-24 self-start">
-            <div className="font-mono text-[11px] tracking-[0.25em] uppercase text-primary mb-6">§ 03 — Principles</div>
-            <h2 className="font-display text-5xl md:text-6xl leading-[1] mb-8">
-              How we <span className="italic">think</span> about your systems.
+            <Eyebrow>§ 05 — Principles</Eyebrow>
+            <h2 className="font-display text-4xl md:text-5xl leading-[1.05] mb-8">
+              How we think about your systems.
             </h2>
             <p className="text-muted-foreground leading-relaxed">
               Automation should be quiet infrastructure — reliable, understandable, and yours to keep. We build to that standard.
@@ -193,59 +287,45 @@ function Index() {
         </div>
       </section>
 
-      <section id="contact" className="relative py-32 border-t border-border overflow-hidden">
-        <div className="absolute inset-0 grid-lines opacity-30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <div className="font-mono text-[11px] tracking-[0.25em] uppercase text-primary mb-8">§ 04 — Start</div>
-          <h2 className="font-display text-5xl md:text-7xl leading-[0.95] mb-8">
-            Let's find your
-            <br />
-            <span className="italic text-gradient-amber">black line.</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed">
-            A 30-minute discovery call. We map where automation would actually move the needle for your business — free, no pitch deck.
-          </p>
-          <a
-            href="mailto:blacklinelogic@outlook.com"
-            className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-md font-medium hover:shadow-[var(--shadow-glow)] transition-all group"
-          >
-            blacklinelogic@outlook.com
-            <span className="transition-transform group-hover:translate-x-1">→</span>
-          </a>
-          <div className="mt-16 grid grid-cols-3 gap-6 max-w-2xl mx-auto text-left border-t border-border pt-10">
-            {[
-              ["Response", "Within 24h"],
-              ["First call", "30 min, free"],
-              ["Location", "Remote / Global"],
-            ].map(([k, v]) => (
-              <div key={k}>
-                <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-1">{k}</div>
-                <div className="text-sm">{v}</div>
-              </div>
-            ))}
+      <section id="start" className="relative py-24 border-t border-border overflow-hidden">
+        <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+          <div>
+            <Eyebrow>§ 06 — Start</Eyebrow>
+            <h2 className="font-display text-4xl md:text-6xl leading-[1.02] mb-8">
+              Let's find your <span className="text-accent">black line.</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed">
+              Tell us what eats your week. You'll get a written scope and a fixed price within one business day — no call, no pitch deck.
+            </p>
+            <div className="grid grid-cols-3 gap-6 max-w-lg border-t border-border pt-8">
+              {[
+                ["Response", "1 business day"],
+                ["Quote", "Fixed, in writing"],
+                ["Location", "Kansas City / Remote"],
+              ].map(([k, v]) => (
+                <div key={k}>
+                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-1">{k}</div>
+                  <div className="text-sm">{v}</div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-8 text-sm text-muted-foreground">
+              Prefer email? <span className="font-mono text-foreground select-all">{CONTACT_EMAIL}</span>
+            </p>
+          </div>
+          <div className="bg-card/80 border border-border rounded-lg p-6 md:p-8">
+            <RequestForm
+              id="intake"
+              subject="Quote request"
+              fields={intakeFields}
+              submitLabel="Get my fixed quote"
+              successText="We'll email you a written scope and fixed price within one business day."
+            />
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-border py-10">
-        <div className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-xs text-muted-foreground font-mono tracking-wider">
-          <div className="flex items-center gap-2.5">
-            <img src={logoAsset} alt="" width={20} height={20} className="w-5 h-5 object-contain" />
-            <span>© {new Date().getFullYear()} BLACKLINE LOGIC</span>
-          </div>
-          <div className="flex items-center gap-5">
-            <span>CUSTOM AI AUTOMATION · BUILT TO OPERATE</span>
-            <Link to="/privacy" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
-              PRIVACY
-            </Link>
-            <Link to="/terms" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
-              TERMS
-            </Link>
-          </div>
-
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
