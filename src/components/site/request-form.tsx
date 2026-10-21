@@ -4,7 +4,7 @@ import { CONTACT_EMAIL } from "./site-chrome";
 /**
  * Sends a request to the form service set in VITE_FORM_ENDPOINT
  * (for example Formspree, or Web3Forms with VITE_FORM_ACCESS_KEY).
- * With no endpoint set, it falls back to a ready-to-send email
+ * If sending fails, it falls back to a ready-to-send email
  * the visitor copies or opens in their mail app.
  */
 
@@ -13,7 +13,8 @@ export type Field =
   | { name: string; label: string; type: "select"; options: string[]; full?: boolean }
   | { name: string; label: string; type: "textarea"; placeholder?: string; required?: boolean; full?: boolean };
 
-const ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT as string | undefined;
+// Formspree form "Website requests" → info@blacklinelogic.com. VITE_FORM_ENDPOINT overrides it.
+const ENDPOINT = (import.meta.env.VITE_FORM_ENDPOINT as string | undefined) || "https://formspree.io/f/xoejonjo";
 const ACCESS_KEY = import.meta.env.VITE_FORM_ACCESS_KEY as string | undefined;
 
 const inputClass =
