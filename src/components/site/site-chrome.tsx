@@ -3,6 +3,8 @@ import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/blacklinelogic_logo.png";
 
 export const CONTACT_EMAIL = "info@blacklinelogic.com";
+export const CONTACT_PHONE = "816-315-7562";
+export const CONTACT_PHONE_TEL = "+18163157562";
 
 type NavItem = { href: string; label: string };
 
@@ -30,6 +32,12 @@ export function SiteHeader({
           ))}
         </nav>
         <a
+          href={`tel:${CONTACT_PHONE_TEL}`}
+          className="hidden lg:inline text-[13px] text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+        >
+          {CONTACT_PHONE}
+        </a>
+        <a
           href={cta.href}
           className="text-[13px] font-medium px-4 py-2 rounded-md border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-all whitespace-nowrap"
         >
@@ -49,6 +57,9 @@ export function SiteFooter() {
           <span>© {new Date().getFullYear()} BLACKLINE LOGIC · KANSAS CITY, MO</span>
         </div>
         <div className="flex flex-wrap items-center gap-5">
+          <a href={`tel:${CONTACT_PHONE_TEL}`} className="hover:text-foreground transition-colors">
+            CALL OR TEXT {CONTACT_PHONE}
+          </a>
           <span>{CONTACT_EMAIL}</span>
           <Link to="/ai-visibility" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
             AI VISIBILITY
