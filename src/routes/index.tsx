@@ -3,7 +3,60 @@ import { SiteHeader, SiteFooter, Eyebrow, CONTACT_EMAIL } from "@/components/sit
 import { RequestForm, intakeFields } from "@/components/site/request-form";
 import { AiAnswerMock, VisibilitySteps } from "@/components/site/visibility";
 
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "BlackLine Logic",
+  legalName: "BlackLine Logic LLC",
+  url: "https://blacklinelogic.com",
+  logo: "https://blacklinelogic.com/blacklinelogic_logo.png",
+  email: "info@blacklinelogic.com",
+  telephone: "+1-816-315-7562",
+  description:
+    "Kansas City AI automation studio for home-service contractors: missed-call text-back, automated Google review requests, AI search visibility (ChatGPT, Gemini, Google AI Mode), and custom workflow automation.",
+  address: { "@type": "PostalAddress", addressLocality: "Kansas City", addressRegion: "MO", addressCountry: "US" },
+  areaServed: [
+    "Kansas City, MO", "Kansas City, KS", "Overland Park, KS", "Olathe, KS", "Lee's Summit, MO",
+    "Independence, MO", "Lenexa, KS", "Shawnee, KS", "Blue Springs, MO", "Liberty, MO",
+  ].map((name) => ({ "@type": "City", name })),
+  knowsAbout: [
+    "Missed-call text-back", "Google review automation", "AI search visibility", "Generative engine optimization",
+    "n8n workflow automation", "Twilio SMS automation", "AI agents for contractors",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Packages",
+    itemListElement: [
+      ["AI Visibility Audit", "197", "One-time audit of whether ChatGPT, Gemini, Perplexity and Google AI Mode recommend your business."],
+      ["Fix & Monitor", "297", "Monthly fixes and re-testing to get your business named by AI assistants."],
+      ["Lead Catcher", "497", "Missed-call text-back and lead follow-up for contractors. $497 setup plus $197 per month."],
+      ["Review Engine", "297", "Automatic Google review requests after every job. $297 setup plus $97 per month."],
+    ].map(([name, price, description]) => ({
+      "@type": "Offer",
+      price,
+      priceCurrency: "USD",
+      itemOffered: { "@type": "Service", name, description },
+    })),
+  },
+};
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "BlackLine Logic — AI Automation for Kansas City Contractors" },
+      {
+        name: "description",
+        content:
+          "Kansas City AI automation for home-service contractors: missed-call text-back, automatic Google review requests, and getting recommended by ChatGPT and Google AI. Fixed prices.",
+      },
+      { property: "og:title", content: "BlackLine Logic — AI Automation for Kansas City Contractors" },
+      {
+        property: "og:description",
+        content: "Missed-call text-back, Google review automation, and AI search visibility for Kansas City home-service contractors.",
+      },
+    ],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(businessSchema) }],
+  }),
   component: Index,
 });
 
