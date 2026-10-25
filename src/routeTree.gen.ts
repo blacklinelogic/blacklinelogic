@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SmsConsentRouteImport } from './routes/sms-consent'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as AiVisibilityRouteImport } from './routes/ai-visibility'
 import { Route as IndexRouteImport } from './routes/index'
@@ -17,6 +18,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SmsConsentRoute = SmsConsentRouteImport.update({
+  id: '/sms-consent',
+  path: '/sms-consent',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/ai-visibility': typeof AiVisibilityRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/sms-consent': typeof SmsConsentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ai-visibility': typeof AiVisibilityRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/sms-consent': typeof SmsConsentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,14 @@ export interface FileRoutesById {
   '/ai-visibility': typeof AiVisibilityRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/sms-consent': typeof SmsConsentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ai-visibility' | '/privacy' | '/terms'
+  fullPaths: '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ai-visibility' | '/privacy' | '/terms'
-  id: '__root__' | '/' | '/ai-visibility' | '/privacy' | '/terms'
+  to: '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent'
+  id: '__root__' | '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +76,7 @@ export interface RootRouteChildren {
   AiVisibilityRoute: typeof AiVisibilityRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
+  SmsConsentRoute: typeof SmsConsentRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -76,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sms-consent': {
+      id: '/sms-consent'
+      path: '/sms-consent'
+      fullPath: '/sms-consent'
+      preLoaderRoute: typeof SmsConsentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -107,6 +124,7 @@ const rootRouteChildren: RootRouteChildren = {
   AiVisibilityRoute: AiVisibilityRoute,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
+  SmsConsentRoute: SmsConsentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

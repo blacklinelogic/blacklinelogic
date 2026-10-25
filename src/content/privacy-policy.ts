@@ -478,7 +478,11 @@ export const policy: { intro: PolicyBlock[]; sections: PolicySection[] } = {
         },
         {
           "type": "p",
-          "text": "Message frequency varies. Message and data rates may apply. You may opt out of nonessential text messages by replying STOP. You may reply HELP for assistance when that function is supported. Consent to receive marketing text messages is not a condition of purchasing goods or services. Mobile telephone numbers, messaging-consent records, and opt-in information will not be sold or shared with third parties for their independent marketing purposes. Information may be provided to Twilio and other necessary communications providers solely to transmit and manage the messages. Clients using BlackLine Logic services are responsible for obtaining any consent required for communications they direct us to send."
+          "text": "Message frequency varies. Message and data rates may apply. You may opt out of text messages at any time by replying STOP. You may reply HELP for assistance when that function is supported. Consent to receive marketing text messages is not a condition of purchasing goods or services. Mobile telephone numbers, messaging-consent records, and opt-in information will not be sold or shared with third parties for their independent marketing purposes. Information may be provided to Twilio and other necessary communications providers solely to transmit and manage the messages. Clients using BlackLine Logic services are responsible for obtaining any consent required for communications they direct us to send."
+        },
+        {
+          "type": "p",
+          "text": "No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties. The information-sharing practices described elsewhere in this policy exclude text messaging originator opt-in data and consent. Details of how callers opt in to text messages are available at blacklinelogic.com/sms-consent."
         }
       ]
     },

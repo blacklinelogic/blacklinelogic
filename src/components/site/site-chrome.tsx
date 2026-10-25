@@ -59,6 +59,9 @@ export function SiteFooter() {
           <Link to="/terms" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
             TERMS
           </Link>
+          <Link to="/sms-consent" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
+            SMS
+          </Link>
         </div>
       </div>
     </footer>
