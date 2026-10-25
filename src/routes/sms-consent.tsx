@@ -19,27 +19,30 @@ export const Route = createFileRoute("/sms-consent")({
   component: SmsConsentPage,
 });
 
+const CONSENT_SCRIPT =
+  "Thanks for calling BlackLine Logic. Sorry we missed your call. Press 1 to agree to receive text messages from BlackLine Logic about your call, so we can help with your request, such as a quote or scheduling. These are customer care messages, up to 3 per missed call. Message and data rates may apply. Reply STOP at any time to opt out, or HELP for help. If you do not want a text, just hang up.";
+
 const steps: { label: string; body: string }[] = [
   {
     label: "1. The caller contacts us",
-    body: "A person calls BlackLine Logic LLC at our business phone number, 816-315-7562, listed on this website. Calling us is the only way this text conversation starts.",
+    body: "A person calls BlackLine Logic LLC at our business phone number, 816-315-7562, shown in the header and footer of every page of this website.",
   },
   {
-    label: "2. The caller is told a text is coming",
-    body: "If we cannot answer, an automated voice message plays before the call ends.",
+    label: "2. The caller hears the full SMS disclosure",
+    body: "If we cannot answer, an automated voice message identifies BlackLine Logic, explains what texts they would receive, and reads the required disclosures (message type, frequency, message and data rates, STOP and HELP). The exact script is below.",
   },
   {
-    label: "3. One text continues the conversation",
-    body: "The caller receives a single text message from the number they called, identifying our business and including opt-out instructions.",
+    label: "3. The caller agrees by pressing 1",
+    body: "Consent is given only when the caller presses 1 on their keypad. If the caller presses any other key or hangs up, no text message is sent. Each consent is logged with the caller's number and the date and time as our record of consent.",
   },
   {
-    label: "4. Limited follow-up",
-    body: "If the caller does not reply, we may send up to two follow-up texts, at least 24 hours apart, only between 9am and 7pm Central. Any reply goes directly to our team. Replying STOP ends all messages immediately.",
+    label: "4. Confirmation and conversation",
+    body: "After pressing 1, the caller hears “Thank you. We are texting you now.” and receives one customer care text that repeats the disclosures. If they do not reply, we may send up to two follow-ups, at least 24 hours apart, between 9am and 7pm Central. Replying STOP ends all messages immediately.",
   },
 ];
 
 const samples = [
-  "Hi, this is BlackLine Logic. Sorry we missed your call! How can we help? Reply STOP to opt out.",
+  "Hi, this is BlackLine Logic. Sorry we missed your call! How can we help with your request?\n\nBlackLine Logic customer care: up to 3 msgs about your call. Msg & data rates may apply. Reply HELP for help, STOP to opt out.",
   "Hi, just following up from BlackLine Logic. Still need a hand? Reply here and we'll get right back to you. Reply STOP to opt out.",
   "BlackLine Logic: You have been unsubscribed and will receive no further messages. Reply START to resubscribe.",
   "BlackLine Logic: For help, email info@blacklinelogic.com or call 816-315-7562. Msg frequency varies. Msg & data rates may apply. Reply STOP to opt out.",
@@ -88,10 +91,24 @@ function SmsConsentPage() {
         </div>
 
         <p className="text-muted-foreground leading-relaxed">
-          BlackLine Logic LLC sends conversational customer-care text messages only to people who
-          have called our business phone number and could not be answered. We do not send marketing
-          or promotional texts, and we never buy, rent, or share phone numbers.
+          BlackLine Logic LLC sends customer care text messages only to people who call our business
+          phone number, cannot be answered, and agree to receive texts by pressing 1 after hearing the
+          disclosure below. We do not send marketing or promotional texts, and we never buy, rent, or
+          share phone numbers.
         </p>
+
+        <div className="mt-10 rounded-lg border border-primary/40 bg-primary/5 px-5 py-5">
+          <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-primary mb-3">
+            Consent statement
+          </div>
+          <p className="text-foreground leading-relaxed">
+            By pressing 1 after calling 816-315-7562, you agree to receive customer care text messages
+            from BlackLine Logic LLC about your call and request (such as quotes, scheduling, and
+            service questions). Up to 3 messages per missed call; message frequency varies. Msg &amp;
+            data rates may apply. Reply STOP to opt out at any time. Reply HELP for help. Consent is
+            not a condition of any purchase.
+          </p>
+        </div>
 
         <div className="mt-14 space-y-14">
           <section>
@@ -109,11 +126,14 @@ function SmsConsentPage() {
           </section>
 
           <section>
-            <Heading>Voice message the caller hears</Heading>
+            <Heading>Exact voice script the caller hears</Heading>
             <blockquote className="border-l-2 border-primary pl-5 text-foreground leading-relaxed">
-              “Sorry we missed your call. We are sending you a text message right now so we can
-              help.”
+              “{CONSENT_SCRIPT}”
             </blockquote>
+            <p className="text-muted-foreground leading-relaxed mt-4">
+              Pressing 1 plays: “Thank you. We are texting you now. Goodbye.” Any other key or no
+              response plays: “We will not text you. Goodbye.” and no message is sent.
+            </p>
           </section>
 
           <section>
@@ -122,7 +142,7 @@ function SmsConsentPage() {
               {samples.map((m) => (
                 <div
                   key={m}
-                  className="rounded-lg border border-border bg-muted/30 px-4 py-3 text-sm leading-relaxed"
+                  className="rounded-lg border border-border bg-muted/30 px-4 py-3 text-sm leading-relaxed whitespace-pre-line"
                 >
                   {m}
                 </div>
@@ -135,7 +155,8 @@ function SmsConsentPage() {
             <ul className="space-y-1.5 pl-1">
               {[
                 "Program: BlackLine Logic missed-call customer care",
-                "Message frequency varies; at most one reply and two follow-ups per missed call unless you continue the conversation.",
+                "Message type: conversational customer care about the caller's request (quotes, scheduling, service questions). No marketing.",
+                "Message frequency varies; up to 3 messages per missed call unless you continue the conversation.",
                 "Message and data rates may apply.",
                 "Reply STOP to opt out at any time. Reply HELP for help.",
                 "Support: info@blacklinelogic.com or 816-315-7562.",
