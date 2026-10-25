@@ -243,6 +243,29 @@ function Index() {
               </p>
             </div>
           </div>
+          <div className="mb-px border border-primary/50 bg-primary/5 p-10 grid md:grid-cols-[1fr_auto] gap-8 items-center">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="rounded-full bg-primary text-primary-foreground font-mono text-[10px] tracking-[0.15em] px-2 py-0.5">BEST VALUE</span>
+                <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground">Everything, one price</span>
+              </div>
+              <h3 className="font-display text-3xl mb-3">Contractor Growth Plan</h3>
+              <p className="text-muted-foreground leading-relaxed max-w-2xl">
+                Get recommended by ChatGPT and Google AI, never lose a missed call, and collect Google reviews after every job. AI Visibility Fix &amp; Monitor, Lead Catcher and Review Engine together, with no setup fees.
+              </p>
+            </div>
+            <div className="md:text-right">
+              <div>
+                <span className="font-display text-5xl">$497</span>
+                <span className="text-muted-foreground">/mo</span>
+              </div>
+              <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mt-2">No setup · 3-month minimum</div>
+              <div className="text-xs text-muted-foreground mt-1">Separately: $591/mo + $794 setup</div>
+              <a href="https://buy.stripe.com/9B6fZa2yT88t7H15hSdnW04" className="mt-5 inline-flex items-center justify-center bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all whitespace-nowrap">
+                Start the Growth Plan →
+              </a>
+            </div>
+          </div>
           <div className="grid md:grid-cols-3 gap-px bg-border border border-border">
             {packages.map((p) => (
               <div key={p.name} className="bg-background p-10 flex flex-col">
