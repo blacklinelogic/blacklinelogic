@@ -10,6 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ElectriciansRouteImport } from './routes/electricians'
+import { Route as PlumbersRouteImport } from './routes/plumbers'
+import { Route as HvacRouteImport } from './routes/hvac'
+import { Route as RoofersRouteImport } from './routes/roofers'
 import { Route as SmsConsentRouteImport } from './routes/sms-consent'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as AiVisibilityRouteImport } from './routes/ai-visibility'
@@ -18,6 +22,26 @@ import { Route as IndexRouteImport } from './routes/index'
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ElectriciansRoute = ElectriciansRouteImport.update({
+  id: '/electricians',
+  path: '/electricians',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlumbersRoute = PlumbersRouteImport.update({
+  id: '/plumbers',
+  path: '/plumbers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HvacRoute = HvacRouteImport.update({
+  id: '/hvac',
+  path: '/hvac',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoofersRoute = RoofersRouteImport.update({
+  id: '/roofers',
+  path: '/roofers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SmsConsentRoute = SmsConsentRouteImport.update({
@@ -46,6 +70,10 @@ export interface FileRoutesByFullPath {
   '/ai-visibility': typeof AiVisibilityRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/electricians': typeof ElectriciansRoute
+  '/plumbers': typeof PlumbersRoute
+  '/hvac': typeof HvacRoute
+  '/roofers': typeof RoofersRoute
   '/sms-consent': typeof SmsConsentRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +81,10 @@ export interface FileRoutesByTo {
   '/ai-visibility': typeof AiVisibilityRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/electricians': typeof ElectriciansRoute
+  '/plumbers': typeof PlumbersRoute
+  '/hvac': typeof HvacRoute
+  '/roofers': typeof RoofersRoute
   '/sms-consent': typeof SmsConsentRoute
 }
 export interface FileRoutesById {
@@ -61,14 +93,18 @@ export interface FileRoutesById {
   '/ai-visibility': typeof AiVisibilityRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/electricians': typeof ElectriciansRoute
+  '/plumbers': typeof PlumbersRoute
+  '/hvac': typeof HvacRoute
+  '/roofers': typeof RoofersRoute
   '/sms-consent': typeof SmsConsentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent'
+  fullPaths: '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent' | '/electricians' | '/plumbers' | '/hvac' | '/roofers'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent'
-  id: '__root__' | '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent'
+  to: '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent' | '/electricians' | '/plumbers' | '/hvac' | '/roofers'
+  id: '__root__' | '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent' | '/electricians' | '/plumbers' | '/hvac' | '/roofers'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +112,10 @@ export interface RootRouteChildren {
   AiVisibilityRoute: typeof AiVisibilityRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
+  ElectriciansRoute: typeof ElectriciansRoute
+  PlumbersRoute: typeof PlumbersRoute
+  HvacRoute: typeof HvacRoute
+  RoofersRoute: typeof RoofersRoute
   SmsConsentRoute: typeof SmsConsentRoute
 }
 
@@ -86,6 +126,34 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/electricians': {
+      id: '/electricians'
+      path: '/electricians'
+      fullPath: '/electricians'
+      preLoaderRoute: typeof ElectriciansRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plumbers': {
+      id: '/plumbers'
+      path: '/plumbers'
+      fullPath: '/plumbers'
+      preLoaderRoute: typeof PlumbersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hvac': {
+      id: '/hvac'
+      path: '/hvac'
+      fullPath: '/hvac'
+      preLoaderRoute: typeof HvacRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roofers': {
+      id: '/roofers'
+      path: '/roofers'
+      fullPath: '/roofers'
+      preLoaderRoute: typeof RoofersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sms-consent': {
@@ -124,6 +192,10 @@ const rootRouteChildren: RootRouteChildren = {
   AiVisibilityRoute: AiVisibilityRoute,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
+  ElectriciansRoute: ElectriciansRoute,
+  PlumbersRoute: PlumbersRoute,
+  HvacRoute: HvacRoute,
+  RoofersRoute: RoofersRoute,
   SmsConsentRoute: SmsConsentRoute,
 }
 export const routeTree = rootRouteImport
