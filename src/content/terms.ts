@@ -311,7 +311,7 @@ export const terms: { intro: PolicyBlock[]; sections: PolicySection[] } = {
         },
         {
           "type": "p",
-          "text": "Following the initial commitment, either party may terminate month-to-month service by providing at least 30 days’ written notice."
+          "text": "The Client may cancel month-to-month service at any time, including month-to-month service that follows an initial commitment. Cancellation takes effect at the end of the current paid month; no further charges are made after that, and paid months are not refunded. BlackLine Logic may end month-to-month service by giving at least 30 days’ written notice."
         },
         {
           "type": "p",
