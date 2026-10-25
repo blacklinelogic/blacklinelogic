@@ -64,6 +64,18 @@ export function SiteFooter() {
           <Link to="/ai-visibility" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
             AI VISIBILITY
           </Link>
+          <Link to="/roofers" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
+            ROOFERS
+          </Link>
+          <Link to="/hvac" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
+            HVAC
+          </Link>
+          <Link to="/plumbers" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
+            PLUMBERS
+          </Link>
+          <Link to="/electricians" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
+            ELECTRICIANS
+          </Link>
           <Link to="/privacy" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
             PRIVACY
           </Link>

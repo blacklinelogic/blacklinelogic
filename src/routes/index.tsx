@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter, Eyebrow, CONTACT_EMAIL } from "@/components/site/site-chrome";
-import { RequestForm, intakeFields } from "@/components/site/request-form";
+import { RequestForm, intakeFields, scanFields } from "@/components/site/request-form";
 import { AiAnswerMock, VisibilitySteps } from "@/components/site/visibility";
 
 const businessSchema = {
@@ -55,7 +55,10 @@ export const Route = createFileRoute("/")({
         content: "Missed-call text-back, Google review automation, and AI search visibility for Kansas City home-service contractors.",
       },
     ],
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(businessSchema) }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(businessSchema) },
+      { type: "application/ld+json", children: JSON.stringify(faqSchema) },
+    ],
   }),
   component: Index,
 });
@@ -114,6 +117,21 @@ const process = [
   { k: "Go live", v: "We run live test leads with you watching, switch it on, and stay on to measure and refine." },
 ];
 
+const faqs: [string, string][] = [
+  ["What does it cost?", "Packages have fixed prices on this page. The Contractor Growth Plan is $497 a month with no setup fee and a 3-month minimum. Software and texting costs are included; the only extra is a one-time carrier registration fee of about $20 for texting."],
+  ["Do I need new software or a new phone number?", "No. You keep your business number and the tools you use now. Unanswered calls forward to a texting number we set up for you, and everything reaches you on your cell."],
+  ["How long until it's live?", "The AI visibility audit takes about two business days. Lead Catcher and Review Engine usually go live in 1\u20132 weeks, because phone carriers have to approve business texting first."],
+  ["Is texting customers legal?", "Yes, with consent, and we build that in. Callers press 1 to agree before they get a text, web forms have a consent checkbox, and anyone can reply STOP to opt out."],
+  ["Can you guarantee ChatGPT will recommend me?", "No one can. We test the questions your customers ask, fix the reasons you're left out, and re-test monthly so you see real counts, like \"named in 2 of 3 runs.\""],
+  ["Can I cancel?", "Month-to-month plans cancel anytime, effective at the end of the paid month. The Growth Plan has a 3-month minimum, then goes month to month. If you leave, we export your data to you."],
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+};
+
 const stats: [string, string][] = [
   ["52%", "Of callers to home-service businesses reach a person"],
   ["45%", "Of consumers used AI to find a local business last year"],
@@ -126,46 +144,67 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader
         nav={[
-          { href: "#services", label: "Services" },
           { href: "#packages", label: "Packages" },
           { href: "#visibility", label: "AI Visibility" },
-          { href: "#process", label: "Process" },
+          { href: "#services", label: "Custom work" },
+          { href: "#faq", label: "FAQ" },
         ]}
         cta={{ href: "#start", label: "Get a quote" }}
       />
 
       <section id="top" className="pt-16">
-        <div className="max-w-7xl mx-auto px-6 pt-24 pb-20 w-full">
-          <div className="max-w-4xl">
-            <a
-              href="#visibility"
-              className="inline-flex items-center gap-3 mb-8 rounded-full border border-border bg-card/70 pl-1.5 pr-4 py-1.5 text-sm hover:border-primary transition-colors"
-            >
-              <span className="rounded-full bg-primary text-primary-foreground font-mono text-[10px] tracking-[0.15em] px-2 py-0.5">NEW</span>
-              Does ChatGPT recommend your business? Free AI scan →
-            </a>
+        <div className="max-w-7xl mx-auto px-6 pt-20 pb-20 w-full grid lg:grid-cols-[1.15fr_1fr] gap-12 items-start">
+          <div>
             <div className="flex items-center gap-3 mb-8 font-mono text-[11px] tracking-[0.25em] uppercase text-muted-foreground">
               <span className="w-8 h-px bg-primary" />
-              <span>AI Automation Studio · Kansas City</span>
+              <span>For Kansas City home-service contractors</span>
             </div>
-            <h1 className="font-display text-5xl md:text-7xl leading-[1.02] mb-8">
-              The line between effort and <span className="text-accent">output.</span>
+            <h1 className="font-display text-5xl md:text-6xl leading-[1.04] mb-8">
+              Get your phone ringing from ChatGPT and Google. <span className="text-accent">Never lose a missed call again.</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-              BlackLine Logic builds custom AI automation systems tailored to the day-to-day operations of your business. Less busywork. More leverage. Fully yours. Built for home-service contractors who'd rather be on the job than at a desk.
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
+              Homeowners now ask AI who to hire, and most roofers, HVAC and plumbing companies never get named. We fix that, text back every caller you miss, and collect Google reviews after every job. Fixed prices, no new software, run for you.
             </p>
+            <ul className="space-y-2 mb-10 text-[15px]">
+              {[
+                "Free scan: see who ChatGPT recommends instead of you",
+                "Missed calls get a text back in seconds",
+                "Google review requests sent after every job",
+              ].map((t) => (
+                <li key={t} className="flex gap-3 items-start">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
             <div className="flex flex-wrap items-center gap-4">
-              <a href="#start" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all">
-                Get a fixed quote in one business day
+              <a href="#packages" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all">
+                See packages and prices
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
-              <a href="#packages" className="inline-flex items-center gap-3 px-6 py-3.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                See packages and prices
+              <a href="tel:+18163157562" className="inline-flex items-center gap-3 px-6 py-3.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                Or call 816-315-7562
               </a>
             </div>
           </div>
+          <div id="scan" className="bg-card/80 border border-border rounded-lg p-6 md:p-8">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="rounded-full bg-primary text-primary-foreground font-mono text-[10px] tracking-[0.15em] px-2 py-0.5">FREE</span>
+              <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground">AI scan</span>
+            </div>
+            <h2 className="font-display text-2xl mb-2">Does ChatGPT recommend you?</h2>
+            <p className="text-sm text-muted-foreground mb-6">
+              We ask the questions your customers ask and email you who gets named. Free, one page, no sales call.
+            </p>
+            <RequestForm
+              id="hero-scan"
+              subject="Free AI scan request"
+              fields={scanFields}
+              submitLabel="Get my free scan"
+              successText="We'll run your scan and email the results within two business days."
+            />
+          </div>
         </div>
-
       </section>
 
       <section className="relative border-y border-border">
@@ -182,57 +221,11 @@ function Index() {
         </p>
       </section>
 
-      <section id="services" className="relative py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-12 gap-12 mb-20">
-            <div className="md:col-span-5">
-              <Eyebrow>§ 01 — Services</Eyebrow>
-              <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
-                Automation, shaped to your business.
-              </h2>
-            </div>
-            <div className="md:col-span-6 md:col-start-7 flex items-end">
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                We don't sell shelfware. Every engagement begins with your workflow — the specifics, the exceptions, the corners cut by people who know the job. Then we build the system around it.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-px bg-border">
-            {services.map((s) => (
-              <div key={s.n} className="bg-background p-10 md:p-12 group hover:bg-card transition-colors">
-                <div className="flex items-start justify-between mb-8">
-                  <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">{s.n}</span>
-                  <span className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-                <h3 className="font-display text-2xl mb-4">{s.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{s.body}</p>
-              </div>
-            ))}
-            <div className="md:col-span-2 bg-primary/5 p-10 md:p-12 grid md:grid-cols-[1fr_auto] gap-8 items-center">
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">05</span>
-                  <span className="rounded-full bg-primary text-primary-foreground font-mono text-[10px] tracking-[0.15em] px-2 py-0.5">NEW</span>
-                </div>
-                <h3 className="font-display text-2xl mb-4">AI Search Visibility</h3>
-                <p className="text-muted-foreground leading-relaxed max-w-3xl">
-                  Homeowners now ask ChatGPT and Google's AI who to hire. We test those answers for your trade and town, show you who gets named instead, and fix why.
-                </p>
-              </div>
-              <a href="#visibility" className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all whitespace-nowrap">
-                See how it works →
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="packages" className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-12 gap-12 mb-16">
             <div className="md:col-span-6">
-              <Eyebrow>§ 02 — Packages</Eyebrow>
+              <Eyebrow>§ 01 — Packages</Eyebrow>
               <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
                 Fixed prices. No surprises.
               </h2>
@@ -289,7 +282,7 @@ function Index() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
             <div>
-              <Eyebrow>§ 03 — AI Search Visibility</Eyebrow>
+              <Eyebrow>§ 02 — AI Search Visibility</Eyebrow>
               <h2 className="font-display text-4xl md:text-5xl leading-[1.05] mb-8">
                 Homeowners are asking AI who to call. <span className="text-accent">Does it say your name?</span>
               </h2>
@@ -315,6 +308,52 @@ function Index() {
         </div>
       </section>
 
+      <section id="services" className="relative py-24 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-12 gap-12 mb-20">
+            <div className="md:col-span-5">
+              <Eyebrow>§ 03 — Custom work</Eyebrow>
+              <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
+                Need something the packages don't cover?
+              </h2>
+            </div>
+            <div className="md:col-span-6 md:col-start-7 flex items-end">
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                We don't sell shelfware. Every engagement begins with your workflow — the specifics, the exceptions, the corners cut by people who know the job. Then we build the system around it.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-px bg-border">
+            {services.map((s) => (
+              <div key={s.n} className="bg-background p-10 md:p-12 group hover:bg-card transition-colors">
+                <div className="flex items-start justify-between mb-8">
+                  <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">{s.n}</span>
+                  <span className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <h3 className="font-display text-2xl mb-4">{s.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{s.body}</p>
+              </div>
+            ))}
+            <div className="md:col-span-2 bg-primary/5 p-10 md:p-12 grid md:grid-cols-[1fr_auto] gap-8 items-center">
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">05</span>
+                  <span className="rounded-full bg-primary text-primary-foreground font-mono text-[10px] tracking-[0.15em] px-2 py-0.5">NEW</span>
+                </div>
+                <h3 className="font-display text-2xl mb-4">AI Search Visibility</h3>
+                <p className="text-muted-foreground leading-relaxed max-w-3xl">
+                  Homeowners now ask ChatGPT and Google's AI who to hire. We test those answers for your trade and town, show you who gets named instead, and fix why.
+                </p>
+              </div>
+              <a href="#visibility" className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all whitespace-nowrap">
+                See how it works →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="process" className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-20 max-w-3xl">
@@ -336,10 +375,30 @@ function Index() {
         </div>
       </section>
 
+      <section id="faq" className="relative py-24 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-12">
+          <div className="md:col-span-4">
+            <Eyebrow>§ 05 — FAQ</Eyebrow>
+            <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">Straight answers.</h2>
+          </div>
+          <div className="md:col-span-8 divide-y divide-border border-y border-border">
+            {faqs.map(([q, a]) => (
+              <details key={q} className="group py-6">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 font-display text-xl">
+                  {q}
+                  <span className="text-primary transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+                </summary>
+                <p className="mt-4 text-muted-foreground leading-relaxed">{a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="principles" className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-16">
           <div className="md:col-span-5 md:sticky md:top-24 self-start">
-            <Eyebrow>§ 05 — Principles</Eyebrow>
+            <Eyebrow>§ 06 — Principles</Eyebrow>
             <h2 className="font-display text-4xl md:text-5xl leading-[1.05] mb-8">
               How we think about your systems.
             </h2>
@@ -366,7 +425,7 @@ function Index() {
       <section id="start" className="relative py-24 border-t border-border overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
           <div>
-            <Eyebrow>§ 06 — Start</Eyebrow>
+            <Eyebrow>§ 07 — Start</Eyebrow>
             <h2 className="font-display text-4xl md:text-6xl leading-[1.02] mb-8">
               Let's find your <span className="text-accent">black line.</span>
             </h2>

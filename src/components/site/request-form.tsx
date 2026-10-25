@@ -155,7 +155,7 @@ export function RequestForm({
 
 export const scanFields: Field[] = [
   { name: "business", label: "Business name", required: true, full: true, placeholder: "Your company name" },
-  { name: "trade", label: "Trade", type: "select", options: ["Roofing", "HVAC", "Plumbing", "Other home service"] },
+  { name: "trade", label: "Trade", type: "select", options: ["Roofing", "HVAC", "Plumbing", "Electrical", "Other home service"] },
   { name: "town", label: "Main town you serve", required: true, placeholder: "e.g. Overland Park" },
   { name: "website", label: "Website", full: true, placeholder: "yourcompany.com" },
   { name: "email", label: "Your email", type: "email", required: true, full: true, placeholder: "you@yourcompany.com" },
@@ -169,7 +169,7 @@ export const intakeFields: Field[] = [
     label: "What you're interested in",
     type: "select",
     full: true,
-    options: ["Lead Catcher", "Review Engine", "Custom Build", "AI Search Visibility", "Not sure yet"],
+    options: ["Contractor Growth Plan", "Lead Catcher", "Review Engine", "AI Search Visibility", "Custom Build", "Not sure yet"],
   },
   { name: "tools", label: "Tools you use now", full: true, placeholder: "e.g. Jobber, Google Sheets, Gmail, QuickBooks" },
   {

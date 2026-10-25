@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://blacklinelogic.com/sitemap.xml
