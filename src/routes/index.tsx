@@ -259,6 +259,26 @@ function Index() {
               </div>
             ))}
           </div>
+          <div id="try-it" className="mt-px border border-t-0 border-border bg-primary/5 p-10 grid md:grid-cols-[1fr_auto] gap-8 items-center">
+            <div>
+              <div className="font-mono text-[11px] tracking-[0.25em] uppercase text-primary mb-4">Try it yourself</div>
+              <h3 className="font-display text-2xl mb-3">See what your customers would get.</h3>
+              <p className="text-muted-foreground leading-relaxed max-w-2xl">
+                Call <a href="tel:+18163272628" className="text-foreground underline underline-offset-4">816-327-2628</a> and press 1 when asked. You'll get the missed-call text a caller would. Or fill in our sample quote form and watch the reply land on your phone in under a minute.
+              </p>
+              <p className="text-[11px] text-muted-foreground/70 mt-4">
+                Demo texts come from BlackLine Logic. Up to 3 msgs. Msg &amp; data rates may apply. Reply STOP to opt out.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3">
+              <a href="tel:+18163272628" className="inline-flex items-center justify-center bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all whitespace-nowrap">
+                Call the demo line
+              </a>
+              <a href="https://blacklinelogic.app.n8n.cloud/form/bll-quote?k=bll-demo" target="_blank" rel="noopener" className="inline-flex items-center justify-center px-6 py-3.5 rounded-md border border-primary/40 text-primary text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-all whitespace-nowrap">
+                Try the quote form →
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
