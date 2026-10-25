@@ -37,7 +37,7 @@ const steps: { label: string; body: string }[] = [
   },
   {
     label: "4. Confirmation and conversation",
-    body: "After pressing 1, the caller hears “Thank you. We are texting you now.” and receives one customer care text that repeats the disclosures. If they do not reply, we may send up to two follow-ups, at least 24 hours apart, between 9am and 7pm Central. Replying STOP ends all messages immediately.",
+    body: "After pressing 1, the caller hears “Thank you. We are texting you now.” and receives one customer care text from our texting number, 816-327-2628, that repeats the disclosures. If they do not reply, we may send up to two follow-ups, at least 24 hours apart, between 9am and 7pm Central. Replying STOP ends all messages immediately.",
   },
 ];
 
@@ -104,7 +104,7 @@ function SmsConsentPage() {
           <p className="text-foreground leading-relaxed">
             By pressing 1 after calling 816-315-7562, you agree to receive customer care text messages
             from BlackLine Logic LLC about your call and request (such as quotes, scheduling, and
-            service questions). Up to 3 messages per missed call; message frequency varies. Msg &amp;
+            service questions). Texts are sent from 816-327-2628. Up to 3 messages per missed call; message frequency varies. Msg &amp;
             data rates may apply. Reply STOP to opt out at any time. Reply HELP for help. Consent is
             not a condition of any purchase.
           </p>
