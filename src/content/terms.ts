@@ -285,6 +285,14 @@ export const terms: { intro: PolicyBlock[]; sections: PolicySection[] } = {
         },
         {
           "type": "p",
+          "text": "Contractor Growth Plan (Three-Month Commitment)"
+        },
+        {
+          "type": "p",
+          "text": "The Contractor Growth Plan is billed monthly with no implementation fee and has a three-month initial term that begins on the date of the first payment. By completing checkout for the Contractor Growth Plan, where this commitment is disclosed, the Client agrees to pay the monthly subscription charge for each of the first three months. If the Client cancels before the end of the third month, the remaining payments for the initial term become due. After the initial term, the plan continues month-to-month. The one-time carrier registration fee for business texting is billed separately and is non-refundable once submitted to the carrier."
+        },
+        {
+          "type": "p",
           "text": "Custom Terms"
         },
         {
