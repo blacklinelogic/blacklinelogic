@@ -57,7 +57,7 @@ const packages = [
 const process = [
   { k: "Intake", v: "You describe the problem in a short written form: your tools, the task, what it costs you when it slips." },
   { k: "Quote", v: "Within one business day you get a one-page scope: what we'll build, what it won't do, and a fixed price." },
-  { k: "Build", v: "We build and test it in accounts in your name, then walk you through setup step by step by email." },
+  { k: "Build", v: "We build and test it: packages run on our systems, custom builds in accounts you own. Then we walk you through setup step by step by email." },
   { k: "Go live", v: "We run live test leads with you watching, switch it on, and stay on to measure and refine." },
 ];
 
@@ -65,7 +65,7 @@ const stats: [string, string][] = [
   ["52%", "Of callers to home-service businesses reach a person"],
   ["45%", "Of consumers used AI to find a local business last year"],
   ["1 day", "From intake form to fixed quote"],
-  ["100%", "Custom-built, in accounts you own"],
+  ["$0", "Extra software or texting fees on packages"],
 ];
 
 function Index() {
@@ -186,7 +186,7 @@ function Index() {
             </div>
             <div className="md:col-span-5 md:col-start-8 flex items-end">
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Every automation runs in accounts in your name. Tool costs (usually $25–40 a month) are billed to you directly, and you keep everything if you ever leave.
+                Packages run on our systems, so software and texting costs are included in the monthly price. The only extra is a one-time carrier registration fee (about $20) for Lead Catcher and Review Engine. Cancel anytime and we export your data to you.
               </p>
             </div>
           </div>
@@ -275,7 +275,7 @@ function Index() {
             {[
               ["Tailored, never templated.", "Your business isn't a use case. Every system we deliver is designed against your actual operations, tools, and edge cases."],
               ["Human in the loop.", "AI is a tool, not a replacement. We design workflows where your team stays in control of the decisions that matter."],
-              ["Owned, not rented.", "You own the system, the logic, and the data. No black boxes, no vendor traps."],
+              ["Your data stays yours.", "Your leads, reviews, and customer records belong to you. Cancel anytime and we hand everything over. Custom builds live in accounts you own."],
               ["Measured in hours saved.", "The number we care about is the one on your team's calendar. Everything else is decoration."],
             ].map(([t, d]) => (
               <div key={t} className="border-l-2 border-primary/40 pl-6 py-1">
