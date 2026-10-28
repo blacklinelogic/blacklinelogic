@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter, Eyebrow } from "@/components/site/site-chrome";
 import { HeroBackdrop } from "@/components/site/fx";
+import { Commercial } from "@/components/site/commercial";
 import { RequestForm, scanFields } from "@/components/site/request-form";
 import { AiAnswerMock, VisibilitySteps, FixesGrid, VisibilityStats } from "@/components/site/visibility";
 
@@ -125,6 +126,9 @@ function AiVisibilityPage() {
             <p className="text-muted-foreground text-lg leading-relaxed max-w-xl">
               Tell us where you work and what you do. We'll run the scan and email you the results within two business days. No sales call.
             </p>
+            <div className="mt-10 max-w-xl">
+              <Commercial compact />
+            </div>
           </div>
           <div className="glow-live rounded-lg p-6 md:p-8">
             <RequestForm

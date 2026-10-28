@@ -5,6 +5,7 @@ import { AiAnswerMock, VisibilitySteps } from "@/components/site/visibility";
 import { CustomerViewPhones } from "@/components/site/phone-mock";
 import { MissedCallCalculator } from "@/components/site/missed-call-calculator";
 import { HeroBackdrop, CountUp, TradeTicker } from "@/components/site/fx";
+import { Commercial } from "@/components/site/commercial";
 
 const businessSchema = {
   "@context": "https://schema.org",
@@ -211,6 +212,19 @@ function Index() {
         <p className="max-w-7xl mx-auto px-6 pb-6 text-[11px] text-muted-foreground/60">
           Sources: Invoca Home Services Benchmarks 2026; BrightLocal Local Consumer Review Survey 2026.
         </p>
+      </section>
+
+      <section id="watch" className="relative py-24 overflow-hidden">
+        <div className="hero-aurora" />
+        <div className="relative max-w-7xl mx-auto px-6 reveal">
+          <div className="max-w-3xl mb-12">
+            <Eyebrow>See it in 30 seconds</Eyebrow>
+            <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
+              Get found. Get the call. <span className="text-gradient">Get the job.</span>
+            </h2>
+          </div>
+          <Commercial />
+        </div>
       </section>
 
       <section id="see-it" className="relative py-24">
