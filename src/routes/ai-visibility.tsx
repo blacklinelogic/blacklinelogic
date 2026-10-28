@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter, Eyebrow } from "@/components/site/site-chrome";
 import { RequestForm, scanFields } from "@/components/site/request-form";
 import { AiAnswerMock, VisibilitySteps, FixesGrid, VisibilityStats } from "@/components/site/visibility";
@@ -132,6 +132,9 @@ function AiVisibilityPage() {
               submitLabel="Request my free scan"
               successText="We'll run your scan and email the results within two business days."
             />
+            <Link to="/sample-scan" className="mt-5 inline-block text-sm font-medium text-primary hover:underline underline-offset-4">
+              See a sample scan →
+            </Link>
           </div>
         </div>
       </section>

@@ -3,6 +3,7 @@ import { SiteHeader, SiteFooter, Eyebrow, CONTACT_EMAIL } from "@/components/sit
 import { RequestForm, intakeFields, scanFields } from "@/components/site/request-form";
 import { AiAnswerMock, VisibilitySteps } from "@/components/site/visibility";
 import { CustomerViewPhones } from "@/components/site/phone-mock";
+import { MissedCallCalculator } from "@/components/site/missed-call-calculator";
 
 const businessSchema = {
   "@context": "https://schema.org",
@@ -185,6 +186,9 @@ function Index() {
               submitLabel="Get my free scan"
               successText="We'll run your scan and email the results within two business days."
             />
+            <Link to="/sample-scan" className="mt-5 inline-block text-sm font-medium text-primary hover:underline underline-offset-4">
+              See a sample scan →
+            </Link>
           </div>
         </div>
       </section>
@@ -216,6 +220,14 @@ function Index() {
           </div>
           <CustomerViewPhones />
           <p className="mt-10 text-center text-xs text-muted-foreground/70">Example messages. Your business name, tone and review link go in during setup.</p>
+
+          <div className="mt-24 max-w-3xl mb-10">
+            <h3 className="font-display text-3xl md:text-4xl leading-[1.05] mb-4">What are missed calls costing you?</h3>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Move the sliders to match your business.
+            </p>
+          </div>
+          <MissedCallCalculator />
         </div>
       </section>
 

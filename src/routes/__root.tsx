@@ -14,19 +14,28 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="flex min-h-screen items-center justify-center bg-background px-6">
+      <div className="max-w-lg text-center">
+        <img src="/blacklinelogic_logo.png" alt="BlackLine Logic" width={56} height={56} className="mx-auto mb-8 h-14 w-14 object-contain" />
+        <div className="text-xs font-semibold tracking-[0.12em] uppercase text-primary mb-4">Page not found</div>
+        <h1 className="font-display text-4xl md:text-5xl leading-[1.05] text-foreground">
+          This page didn't make the list.
+        </h1>
+        <p className="mt-4 text-muted-foreground leading-relaxed">
+          The link may be old or mistyped. Here's where most people are headed:
         </p>
-        <div className="mt-6">
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <a
+            href="/#scan"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+          >
+            Get a free AI scan
+          </a>
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-md border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-card"
           >
-            Go home
+            Go to the homepage
           </Link>
         </div>
       </div>
