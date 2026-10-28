@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import logoAsset from "@/assets/blacklinelogic_logo.png";
+import logoAsset from "@/assets/logo-wide.png";
 
 export const CONTACT_EMAIL = "info@blacklinelogic.com";
 export const CONTACT_PHONE = "816-315-7562";
@@ -19,7 +19,7 @@ export function SiteHeader({
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/50">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-6">
         <Link to="/" className="flex items-center gap-3 group">
-          <img src={logoAsset} alt="BlackLine Logic" width={32} height={32} className="w-9 h-9 object-contain" />
+          <img src={logoAsset} alt="BlackLine Logic" width={53} height={36} className="h-9 w-auto object-contain" />
           <span className="font-display text-[17px] tracking-[0.02em] uppercase hidden sm:inline" style={{ fontStretch: "125%" }}>
             Blackline<span className="text-accent">Logic</span>
           </span>
@@ -53,7 +53,7 @@ export function SiteFooter() {
     <footer className="border-t border-border py-10">
       <div className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-xs text-muted-foreground font-mono tracking-wider">
         <div className="flex items-center gap-2.5">
-          <img src={logoAsset} alt="" width={20} height={20} className="w-5 h-5 object-contain" />
+          <img src={logoAsset} alt="" width={29} height={20} className="h-5 w-auto object-contain" />
           <span>© {new Date().getFullYear()} BLACKLINE LOGIC · KANSAS CITY, MO</span>
         </div>
         <div className="flex flex-wrap items-center gap-5">
