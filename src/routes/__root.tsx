@@ -11,7 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { useScrollReveal } from "@/components/site/fx";
+import { useScrollReveal, useSpotlight } from "@/components/site/fx";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -134,6 +134,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   useScrollReveal(pathname);
+  useSpotlight();
 
   return (
     <QueryClientProvider client={queryClient}>
