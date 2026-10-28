@@ -4,6 +4,7 @@ import { RequestForm, intakeFields, scanFields } from "@/components/site/request
 import { AiAnswerMock, VisibilitySteps } from "@/components/site/visibility";
 import { CustomerViewPhones } from "@/components/site/phone-mock";
 import { MissedCallCalculator } from "@/components/site/missed-call-calculator";
+import { HeroBackdrop } from "@/components/site/fx";
 
 const businessSchema = {
   "@context": "https://schema.org",
@@ -135,15 +136,16 @@ function Index() {
         cta={{ href: "#start", label: "Get a quote" }}
       />
 
-      <section id="top" className="pt-16">
-        <div className="max-w-7xl mx-auto px-6 pt-20 pb-20 w-full grid lg:grid-cols-[1.15fr_1fr] gap-12 items-start">
+      <section id="top" className="relative overflow-hidden pt-16">
+        <HeroBackdrop />
+        <div className="relative max-w-7xl mx-auto px-6 pt-20 pb-20 w-full grid lg:grid-cols-[1.15fr_1fr] gap-12 items-start">
           <div>
             <div className="flex items-center gap-3 mb-8 font-mono text-[11px] tracking-[0.25em] uppercase text-muted-foreground">
               <span className="w-8 h-px bg-primary" />
               <span>For Kansas City home-service contractors</span>
             </div>
             <h1 className="font-display text-5xl md:text-6xl leading-[1.04] mb-8">
-              Get your phone ringing from ChatGPT and Google. <span className="text-accent">Never lose a missed call again.</span>
+              Get your phone ringing from ChatGPT and Google. <span className="text-gradient">Never lose a missed call again.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
               Homeowners now ask AI who to hire, and most roofers, HVAC and plumbing companies never get named. We fix that, text back every caller you miss, and collect Google reviews after every job. Fixed prices, no new software, run for you.
@@ -161,7 +163,7 @@ function Index() {
               ))}
             </ul>
             <div className="flex flex-wrap items-center gap-4">
-              <a href="#packages" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all">
+              <a href="#packages" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all glow-btn">
                 See packages and prices
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
@@ -170,7 +172,7 @@ function Index() {
               </a>
             </div>
           </div>
-          <div id="scan" className="bg-card/80 border border-border rounded-lg p-6 md:p-8">
+          <div id="scan" className="glow-panel rounded-lg p-6 md:p-8">
             <div className="flex items-center gap-3 mb-3">
               <span className="rounded-full bg-primary text-primary-foreground font-mono text-[10px] tracking-[0.15em] px-2 py-0.5">FREE</span>
               <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground">AI scan</span>
@@ -197,7 +199,7 @@ function Index() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
           {stats.map(([n, l]) => (
             <div key={l} className="py-10 px-6 first:pl-0">
-              <div className="font-display text-4xl md:text-5xl text-accent">{n}</div>
+              <div className="font-display text-4xl md:text-5xl text-accent glow-number">{n}</div>
               <div className="mt-2 text-sm text-muted-foreground leading-relaxed">{l}</div>
             </div>
           ))}
@@ -208,7 +210,7 @@ function Index() {
       </section>
 
       <section id="see-it" className="relative py-24">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 reveal">
           <div className="max-w-3xl mb-16">
             <Eyebrow>What your customers see</Eyebrow>
             <h2 className="font-display text-4xl md:text-5xl leading-[1.05] mb-6">
@@ -218,7 +220,7 @@ function Index() {
               These texts go out from your business on autopilot. You see every conversation on your phone and can jump in anytime.
             </p>
           </div>
-          <CustomerViewPhones />
+          <div className="reveal"><CustomerViewPhones /></div>
           <p className="mt-10 text-center text-xs text-muted-foreground/70">Example messages. Your business name, tone and review link go in during setup.</p>
 
           <div className="mt-24 max-w-3xl mb-10">
@@ -227,12 +229,12 @@ function Index() {
               Move the sliders to match your business.
             </p>
           </div>
-          <MissedCallCalculator />
+          <div className="reveal"><MissedCallCalculator /></div>
         </div>
       </section>
 
       <section id="packages" className="relative py-24 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 reveal">
           <div className="grid md:grid-cols-12 gap-12 mb-16">
             <div className="md:col-span-6">
               <Eyebrow>Packages</Eyebrow>
@@ -246,7 +248,7 @@ function Index() {
               </p>
             </div>
           </div>
-          <div className="mb-px border border-primary/50 bg-primary/5 p-10 grid md:grid-cols-[1fr_auto] gap-8 items-center">
+          <div className="mb-px glow-panel p-10 grid md:grid-cols-[1fr_auto] gap-8 items-center">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <span className="rounded-full bg-primary text-primary-foreground font-mono text-[10px] tracking-[0.15em] px-2 py-0.5">BEST VALUE</span>
@@ -265,14 +267,14 @@ function Index() {
               <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mt-2">No setup · 3-month minimum</div>
               <div className="text-xs text-muted-foreground mt-1">Separately: $591/mo + $794 setup</div>
               <div className="text-xs text-accent mt-2">Taking 3 founding clients in Kansas City this fall.</div>
-              <a href="https://buy.stripe.com/9B6fZa2yT88t7H15hSdnW04" className="mt-5 inline-flex items-center justify-center bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all whitespace-nowrap">
+              <a href="https://buy.stripe.com/9B6fZa2yT88t7H15hSdnW04" className="mt-5 inline-flex items-center justify-center bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all whitespace-nowrap glow-btn">
                 Start the Growth Plan →
               </a>
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-border border border-border">
             {packages.map((p) => (
-              <div key={p.name} className="bg-background p-10 flex flex-col">
+              <div key={p.name} className="bg-background p-10 flex flex-col border border-transparent glow-card">
                 <h3 className="font-display text-2xl mb-6">{p.name}</h3>
                 <div className="mb-6">
                   <span className="font-display text-4xl">{p.setup}</span>
@@ -290,7 +292,7 @@ function Index() {
       </section>
 
       <section id="visibility" className="relative py-24 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 reveal">
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
             <div>
               <Eyebrow>AI search visibility</Eyebrow>
@@ -311,7 +313,7 @@ function Index() {
             <Link
               to="/ai-visibility"
               hash="scan"
-              className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all"
+              className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all glow-btn"
             >
               Get your free AI scan →
             </Link>
@@ -320,7 +322,7 @@ function Index() {
       </section>
 
       <section id="process" className="relative py-24 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 reveal">
           <div className="mb-20 max-w-3xl">
             <Eyebrow>How it works</Eyebrow>
             <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
@@ -341,7 +343,7 @@ function Index() {
       </section>
 
       <section id="faq" className="relative py-24 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-12">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-12 reveal">
           <div className="md:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">Straight answers.</h2>
@@ -361,7 +363,8 @@ function Index() {
       </section>
 
       <section id="start" className="relative py-24 border-t border-border overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+        <div className="hero-aurora" />
+        <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 reveal">
           <div>
             <Eyebrow>Get started</Eyebrow>
             <h2 className="font-display text-4xl md:text-6xl leading-[1.02] mb-8">
@@ -386,7 +389,7 @@ function Index() {
               Prefer email? <span className="font-mono text-foreground select-all">{CONTACT_EMAIL}</span>
             </p>
           </div>
-          <div className="bg-card/80 border border-border rounded-lg p-6 md:p-8">
+          <div className="glow-panel rounded-lg p-6 md:p-8">
             <RequestForm
               id="intake"
               subject="Quote request"

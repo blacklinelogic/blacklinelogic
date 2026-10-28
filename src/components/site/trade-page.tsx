@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter, Eyebrow } from "@/components/site/site-chrome";
 import { RequestForm, scanFields } from "@/components/site/request-form";
+import { HeroBackdrop } from "@/components/site/fx";
 
 export type Trade = {
   slug: string;
@@ -50,8 +51,9 @@ export function TradePage({ t }: { t: Trade }) {
         cta={{ href: "#scan", label: "Free AI scan" }}
       />
 
-      <section className="pt-16">
-        <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 grid lg:grid-cols-[1.15fr_1fr] gap-12 items-start">
+      <section className="relative overflow-hidden pt-16">
+        <HeroBackdrop />
+        <div className="relative max-w-7xl mx-auto px-6 pt-20 pb-16 grid lg:grid-cols-[1.15fr_1fr] gap-12 items-start">
           <div>
             <div className="flex items-center gap-3 mb-8 font-mono text-[11px] tracking-[0.25em] uppercase text-muted-foreground">
               <span className="w-8 h-px bg-primary" />
@@ -63,11 +65,11 @@ export function TradePage({ t }: { t: Trade }) {
             <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-2xl">
               ChatGPT, Gemini and Google AI Mode now answer “who should I call?” with two or three local names. We check whether you're one of them, fix why you're not, text back every caller you miss, and ask every finished customer for a Google review.
             </p>
-            <a href="/#packages" className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all">
+            <a href="/#packages" className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all glow-btn">
               See packages and prices →
             </a>
           </div>
-          <div id="scan" className="bg-card/80 border border-border rounded-lg p-6 md:p-8">
+          <div id="scan" className="glow-panel rounded-lg p-6 md:p-8">
             <h2 className="font-display text-2xl mb-2">Free AI scan for {t.trade}</h2>
             <p className="text-sm text-muted-foreground mb-6">We run the questions below for your town and email you who gets named. Free, no sales call.</p>
             <RequestForm

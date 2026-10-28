@@ -170,7 +170,7 @@ function SampleScanPage() {
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <a href="/#scan" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all">
+              <a href="/#scan" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all glow-btn">
                 Get my free scan →
               </a>
               <Link to="/ai-visibility" className="inline-flex items-center px-6 py-3.5 text-sm font-medium text-muted-foreground hover:text-foreground">
