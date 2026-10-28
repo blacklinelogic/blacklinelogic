@@ -1,21 +1,64 @@
+import { useEffect, useRef, useState } from "react";
+import { useInView } from "@/components/site/fx";
+
+const QUESTION = "Who's the best roofer in Overland Park, KS for storm damage?";
+const NAMED: [string, string][] = [
+  ["Example Roofing Co.", "4.9 stars, 300+ reviews, insurance claim help"],
+  ["Sample Exteriors", "Family-owned, free inspections"],
+  ["Placeholder Roof & Gutter", "Fast emergency tarping"],
+];
+
+/** An AI answer that types itself out when it scrolls into view, ending with "your company: not named". */
 export function AiAnswerMock() {
-  const named = [
-    ["Example Roofing Co.", "4.9 stars, 300+ reviews, insurance claim help"],
-    ["Sample Exteriors", "Family-owned, free inspections"],
-    ["Placeholder Roof & Gutter", "Fast emergency tarping"],
-  ];
+  // phase: 0 waiting, 1 typing, 2 thinking, 3+ answers shown (3..5), 6 verdict
+  const [phase, setPhase] = useState(6);
+  const [typed, setTyped] = useState(QUESTION.length);
+  const ref = useRef<HTMLDivElement>(null);
+  const animate = useRef(false);
+
+  useEffect(() => {
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+    animate.current = true;
+    setPhase(0);
+    setTyped(0);
+  }, []);
+
+  useInView(ref, () => {
+    if (!animate.current) return;
+    setPhase(1);
+    let i = 0;
+    const typer = window.setInterval(() => {
+      i += 1;
+      setTyped(i);
+      if (i >= QUESTION.length) {
+        window.clearInterval(typer);
+        setPhase(2);
+        const steps = [3, 4, 5, 6];
+        steps.forEach((p, k) => window.setTimeout(() => setPhase(p), 1100 + k * 550));
+      }
+    }, 32);
+  });
+
+  const shown = phase >= 3 ? Math.min(NAMED.length, phase - 2) : 0;
   return (
-    <div>
-      <div className="bg-card border border-border rounded-lg overflow-hidden text-[15px]" aria-label="Example of an AI assistant answer">
+    <div ref={ref}>
+      <div className="spotlight bg-card border border-border rounded-lg overflow-hidden text-[15px] shadow-[0_40px_100px_-40px_rgba(20,99,255,0.6)]" aria-label="Example of an AI assistant answer">
         <div className="flex gap-4 px-5 py-4 border-b border-border">
           <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground pt-1 w-10 shrink-0">Ask</span>
-          <p className="font-mono text-sm">Who's the best roofer in Overland Park, KS for storm damage?</p>
+          <p className={"font-mono text-sm min-h-[1.5em] " + (phase === 1 ? "caret" : "")}>{QUESTION.slice(0, typed)}</p>
         </div>
-        <div className="px-5 py-4">
-          <p className="text-muted-foreground mb-3">Here are three well-reviewed options:</p>
+        <div className="px-5 py-4 min-h-[210px]">
+          {phase === 2 && (
+            <div className="dots py-2" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
+          )}
+          {shown > 0 && <p className="text-muted-foreground mb-3">Here are three well-reviewed options:</p>}
           <ol className="grid gap-3">
-            {named.map(([n, d], i) => (
-              <li key={n} className="grid grid-cols-[28px_1fr] items-baseline">
+            {NAMED.slice(0, shown).map(([n, d], i) => (
+              <li key={n} className="grid grid-cols-[28px_1fr] items-baseline animate-in fade-in slide-in-from-bottom-1 duration-500">
                 <span className="font-mono text-xs text-primary">{i + 1}</span>
                 <span>
                   <strong className="font-semibold">{n}</strong>
@@ -25,7 +68,13 @@ export function AiAnswerMock() {
             ))}
           </ol>
         </div>
-        <div className="flex flex-wrap justify-between gap-3 px-5 py-3.5 border-t border-border bg-destructive/10">
+        <div
+          className={
+            "flex flex-wrap justify-between gap-3 px-5 py-3.5 border-t border-border bg-destructive/10 transition-opacity duration-500 " +
+            (phase >= 6 ? "opacity-100" : "opacity-0") +
+            (phase >= 6 && animate.current ? " flash-red" : "")
+          }
+        >
           <span className="font-semibold">Your company</span>
           <span className="font-mono text-[13px] text-destructive">● not named in 3 of 3 runs</span>
         </div>

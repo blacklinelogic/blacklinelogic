@@ -4,7 +4,7 @@ import { RequestForm, intakeFields, scanFields } from "@/components/site/request
 import { AiAnswerMock, VisibilitySteps } from "@/components/site/visibility";
 import { CustomerViewPhones } from "@/components/site/phone-mock";
 import { MissedCallCalculator } from "@/components/site/missed-call-calculator";
-import { HeroBackdrop } from "@/components/site/fx";
+import { HeroBackdrop, CountUp, TradeTicker } from "@/components/site/fx";
 
 const businessSchema = {
   "@context": "https://schema.org",
@@ -172,7 +172,7 @@ function Index() {
               </a>
             </div>
           </div>
-          <div id="scan" className="glow-panel rounded-lg p-6 md:p-8">
+          <div id="scan" className="glow-live rounded-lg p-6 md:p-8">
             <div className="flex items-center gap-3 mb-3">
               <span className="rounded-full bg-primary text-primary-foreground font-mono text-[10px] tracking-[0.15em] px-2 py-0.5">FREE</span>
               <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground">AI scan</span>
@@ -195,11 +195,15 @@ function Index() {
         </div>
       </section>
 
+      <div className="relative border-t border-border">
+        <TradeTicker />
+      </div>
+
       <section className="relative border-y border-border">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
           {stats.map(([n, l]) => (
             <div key={l} className="py-10 px-6 first:pl-0">
-              <div className="font-display text-4xl md:text-5xl text-accent glow-number">{n}</div>
+              <div className="font-display text-4xl md:text-5xl text-accent glow-number"><CountUp value={n} /></div>
               <div className="mt-2 text-sm text-muted-foreground leading-relaxed">{l}</div>
             </div>
           ))}
@@ -248,7 +252,7 @@ function Index() {
               </p>
             </div>
           </div>
-          <div className="mb-px glow-panel p-10 grid md:grid-cols-[1fr_auto] gap-8 items-center">
+          <div className="spotlight mb-px glow-panel p-10 grid md:grid-cols-[1fr_auto] gap-8 items-center">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <span className="rounded-full bg-primary text-primary-foreground font-mono text-[10px] tracking-[0.15em] px-2 py-0.5">BEST VALUE</span>
@@ -274,7 +278,7 @@ function Index() {
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-border border border-border">
             {packages.map((p) => (
-              <div key={p.name} className="bg-background p-10 flex flex-col border border-transparent glow-card">
+              <div key={p.name} className="spotlight bg-background p-10 flex flex-col border border-transparent glow-card">
                 <h3 className="font-display text-2xl mb-6">{p.name}</h3>
                 <div className="mb-6">
                   <span className="font-display text-4xl">{p.setup}</span>

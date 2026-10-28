@@ -69,7 +69,7 @@ export function TradePage({ t }: { t: Trade }) {
               See packages and prices →
             </a>
           </div>
-          <div id="scan" className="glow-panel rounded-lg p-6 md:p-8">
+          <div id="scan" className="glow-live rounded-lg p-6 md:p-8">
             <h2 className="font-display text-2xl mb-2">Free AI scan for {t.trade}</h2>
             <p className="text-sm text-muted-foreground mb-6">We run the questions below for your town and email you who gets named. Free, no sales call.</p>
             <RequestForm

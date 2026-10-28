@@ -126,7 +126,7 @@ function AiVisibilityPage() {
               Tell us where you work and what you do. We'll run the scan and email you the results within two business days. No sales call.
             </p>
           </div>
-          <div className="glow-panel rounded-lg p-6 md:p-8">
+          <div className="glow-live rounded-lg p-6 md:p-8">
             <RequestForm
               id="scan-form"
               subject="Free AI scan request"
