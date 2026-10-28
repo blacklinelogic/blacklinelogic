@@ -9,6 +9,10 @@ export const policy: { intro: PolicyBlock[]; sections: PolicySection[] } = {
   "intro": [
     {
       "type": "p",
+      "text": "Text messaging privacy: No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties. For our customer-care text program, we collect your phone number, your consent record (date, time and the number you called from) and the messages you send us, and use them only to respond to your request and honor opt-out requests. Message frequency varies (up to 3 messages per missed call). Message and data rates may apply. Reply STOP to opt out or HELP for help. Program terms: blacklinelogic.com/sms-terms."
+    },
+    {
+      "type": "p",
       "text": "BlackLine Logic (“BlackLine Logic,” “BlackLine,” “we,” “us,” or “our”) provides artificial intelligence, workflow automation, communication, scheduling, integration, and related technology services to businesses."
     },
     {
@@ -478,11 +482,11 @@ export const policy: { intro: PolicyBlock[]; sections: PolicySection[] } = {
         },
         {
           "type": "p",
-          "text": "Message frequency varies. Message and data rates may apply. You may opt out of text messages at any time by replying STOP. You may reply HELP for assistance when that function is supported. Consent to receive marketing text messages is not a condition of purchasing goods or services. Mobile telephone numbers, messaging-consent records, and opt-in information will not be sold or shared with third parties for their independent marketing purposes. Information may be provided to Twilio and other necessary communications providers solely to transmit and manage the messages. Clients using BlackLine Logic services are responsible for obtaining any consent required for communications they direct us to send."
+          "text": "Message frequency varies. Message and data rates may apply. You may opt out of text messages at any time by replying STOP. You may reply HELP for assistance when that function is supported. Consent to receive text messages is not a condition of any purchase. Mobile telephone numbers, messaging-consent records, and opt-in information will not be sold to, shared with, or used by any third parties or affiliates for marketing or promotional purposes. Clients using BlackLine Logic services are responsible for obtaining any consent required for communications they direct us to send."
         },
         {
           "type": "p",
-          "text": "No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties. The information-sharing practices described elsewhere in this policy exclude text messaging originator opt-in data and consent. Details of how callers opt in to text messages are available at blacklinelogic.com/sms-consent."
+          "text": "No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties. The information-sharing practices described elsewhere in this policy exclude text messaging originator opt-in data and consent. Details of how callers opt in to text messages are available at blacklinelogic.com/sms-consent, and the program terms are at blacklinelogic.com/sms-terms."
         }
       ]
     },
@@ -502,7 +506,7 @@ export const policy: { intro: PolicyBlock[]; sections: PolicySection[] } = {
       "blocks": [
         {
           "type": "p",
-          "text": "BlackLine Logic does not sell personal information. We may disclose or transmit information only as described below. Twilio Information may be transmitted to Twilio when necessary to operate telephone calls, call recordings, routing, and text-message services. OpenAI Information may be transmitted to OpenAI when necessary to perform AI-supported functions such as transcription analysis, information extraction, summarization, classification, response generation, or scheduling assistance. n8n Information may be processed through n8n when necessary to connect authorized applications and complete automated workflows. Vercel Limited website and technical information may be processed by Vercel to host, deliver, troubleshoot, and secure our website. QuickBooks Billing, payment, invoice, client-contact, and accounting information may be processed by QuickBooks to provide invoicing, payment, bookkeeping, and accounting services. Our Clients When you interact with a system operated for one of our clients, information collected through that system may be disclosed to the client and its authorized personnel. Client-Authorized Applications Information may be transmitted to calendars, CRMs, email accounts, spreadsheets, scheduling systems, or other applications selected and authorized by a client when necessary to complete the requested workflow."
+          "text": "BlackLine Logic does not sell personal information. We may disclose or transmit information only as described below. Twilio Information may be transmitted to Twilio when necessary to operate telephone calls, call recordings, routing, and text-message services. OpenAI Information may be transmitted to OpenAI when necessary to perform AI-supported functions such as transcription analysis, information extraction, summarization, classification, response generation, or scheduling assistance. n8n Information may be processed through n8n when necessary to connect authorized applications and complete automated workflows. Vercel Limited website and technical information may be processed by Vercel to host, deliver, troubleshoot, and secure our website. QuickBooks Billing, payment, invoice, client-contact, and accounting information may be processed by QuickBooks to provide invoicing, payment, bookkeeping, and accounting services. Our Clients When you interact with a system operated for one of our clients, information collected through that system may be disclosed to the client and its authorized personnel. None of the disclosures in this section include text messaging originator opt-in data or consent, which are never shared with third parties. Client-Authorized Applications Information may be transmitted to calendars, CRMs, email accounts, spreadsheets, scheduling systems, or other applications selected and authorized by a client when necessary to complete the requested workflow."
         },
         {
           "type": "p",
