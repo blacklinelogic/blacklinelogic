@@ -20,7 +20,7 @@ export const Route = createFileRoute("/sms-consent")({
 });
 
 const CONSENT_SCRIPT =
-  "Thanks for calling BlackLine Logic. Sorry we missed your call. Press 1 to agree to receive text messages from BlackLine Logic about your call, so we can help with your request, such as a quote or scheduling. These are customer care messages, up to 3 per missed call. Message and data rates may apply. Reply STOP at any time to opt out, or HELP for help. If you do not want a text, just hang up.";
+  "Thanks for calling BlackLine Logic. Sorry we missed your call. Press 1 to agree to receive text messages from BlackLine Logic about your call, so we can help with your request, such as a quote or scheduling. These are customer care messages, up to 3 per missed call. Message and data rates may apply. Reply STOP at any time to opt out, or HELP for help. Our SMS terms and privacy policy are at blacklinelogic dot com slash S M S dash terms. If you do not want a text, just hang up.";
 
 const steps: { label: string; body: string }[] = [
   {
