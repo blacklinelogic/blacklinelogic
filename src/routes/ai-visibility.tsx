@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter, Eyebrow } from "@/components/site/site-chrome";
+import { HeroBackdrop } from "@/components/site/fx";
 import { RequestForm, scanFields } from "@/components/site/request-form";
 import { AiAnswerMock, VisibilitySteps, FixesGrid, VisibilityStats } from "@/components/site/visibility";
 
@@ -34,7 +35,8 @@ function AiVisibilityPage() {
       />
 
       <section id="top" className="relative overflow-hidden pt-16">
-                <div className="relative max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
+        <HeroBackdrop />
+        <div className="relative max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="flex items-center gap-3 mb-8 font-mono text-[11px] tracking-[0.25em] uppercase text-muted-foreground">
               <span className="w-8 h-px bg-primary" />
@@ -47,7 +49,7 @@ function AiVisibilityPage() {
               We ask ChatGPT, Gemini, Perplexity and Google AI Mode the questions your customers ask, show you which contractors get named instead, and fix the reasons you're left out.
             </p>
             <div className="flex flex-wrap items-center gap-5">
-              <a href="#scan" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all">
+              <a href="#scan" className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all glow-btn">
                 Get your free AI scan
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
@@ -124,7 +126,7 @@ function AiVisibilityPage() {
               Tell us where you work and what you do. We'll run the scan and email you the results within two business days. No sales call.
             </p>
           </div>
-          <div className="bg-card/80 border border-border rounded-lg p-6 md:p-8">
+          <div className="glow-panel rounded-lg p-6 md:p-8">
             <RequestForm
               id="scan-form"
               subject="Free AI scan request"

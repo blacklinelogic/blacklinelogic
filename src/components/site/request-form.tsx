@@ -114,7 +114,7 @@ export function RequestForm({
       <button
         type="submit"
         disabled={status === "sending"}
-        className="sm:col-span-2 inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all disabled:opacity-60"
+        className="sm:col-span-2 inline-flex items-center justify-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all disabled:opacity-60 glow-btn"
       >
         {status === "sending" ? "Sending…" : submitLabel}
         <span>→</span>
