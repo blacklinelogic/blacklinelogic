@@ -93,6 +93,6 @@ export function SiteFooter() {
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <div className="font-mono text-[11px] tracking-[0.25em] uppercase text-primary mb-6">{children}</div>
+    <div className="text-xs font-semibold tracking-[0.12em] uppercase text-primary mb-5">{children}</div>
   );
 }
