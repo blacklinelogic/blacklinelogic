@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter, Eyebrow, CONTACT_EMAIL } from "@/components/site/site-chrome";
 import { RequestForm, intakeFields, scanFields } from "@/components/site/request-form";
 import { AiAnswerMock, VisibilitySteps } from "@/components/site/visibility";
+import { CustomerViewPhones } from "@/components/site/phone-mock";
 
 const businessSchema = {
   "@context": "https://schema.org",
@@ -54,6 +55,8 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Missed-call text-back, Google review automation, and AI search visibility for Kansas City home-service contractors.",
       },
+      { property: "og:url", content: "https://blacklinelogic.com/" },
+      { property: "og:image:alt", content: "Does ChatGPT recommend you? Free AI scan for Kansas City contractors. BlackLine Logic." },
     ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(businessSchema) },
@@ -62,29 +65,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-const services = [
-  {
-    n: "01",
-    title: "Workflow Automation",
-    body: "Replace repetitive back-office tasks — data entry, routing, approvals, reporting — with tailored agents that fit your existing tools.",
-  },
-  {
-    n: "02",
-    title: "Custom AI Agents",
-    body: "Purpose-built assistants trained on your operations. From customer intake to internal knowledge, they work the way your team already does.",
-  },
-  {
-    n: "03",
-    title: "Systems Integration",
-    body: "We wire your CRM, inbox, spreadsheets, and databases into a single automated pipeline. No brittle plugins, no vendor lock.",
-  },
-  {
-    n: "04",
-    title: "Ongoing Optimization",
-    body: "Automation is not a one-time install. We monitor, tune, and extend your systems as your business grows.",
-  },
-];
 
 const packages = [
   {
@@ -123,6 +103,8 @@ const faqs: [string, string][] = [
   ["How long until it's live?", "The AI visibility audit takes about two business days. Lead Catcher and Review Engine usually go live in 1\u20132 weeks, because phone carriers have to approve business texting first."],
   ["Is texting customers legal?", "Yes, with consent, and we build that in. Callers press 1 to agree before they get a text, web forms have a consent checkbox, and anyone can reply STOP to opt out."],
   ["Can you guarantee ChatGPT will recommend me?", "No one can. We test the questions your customers ask, fix the reasons you're left out, and re-test monthly so you see real counts, like \"named in 2 of 3 runs.\""],
+  ["Who owns my data?", "You do. Your leads, reviews and customer records are yours, and if you leave we export everything to you. Custom builds live in accounts you own."],
+  ["Are you local?", "Yes. BlackLine Logic is based in Kansas City (215 W Pershing Rd) and works only with contractors in the KC metro, on both sides of State Line."],
   ["Can I cancel?", "Month-to-month plans cancel anytime, effective at the end of the paid month. The Growth Plan has a 3-month minimum, then goes month to month. If you leave, we export your data to you."],
 ];
 
@@ -141,12 +123,12 @@ const stats: [string, string][] = [
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground pb-20 md:pb-0">
       <SiteHeader
         nav={[
           { href: "#packages", label: "Packages" },
+          { href: "#see-it", label: "How it looks" },
           { href: "#visibility", label: "AI Visibility" },
-          { href: "#services", label: "Custom work" },
           { href: "#faq", label: "FAQ" },
         ]}
         cta={{ href: "#start", label: "Get a quote" }}
@@ -165,7 +147,7 @@ function Index() {
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
               Homeowners now ask AI who to hire, and most roofers, HVAC and plumbing companies never get named. We fix that, text back every caller you miss, and collect Google reviews after every job. Fixed prices, no new software, run for you.
             </p>
-            <ul className="space-y-2 mb-10 text-[15px]">
+            <ul className="space-y-2.5 mb-10 text-[17px]">
               {[
                 "Free scan: see who ChatGPT recommends instead of you",
                 "Missed calls get a text back in seconds",
@@ -212,7 +194,7 @@ function Index() {
           {stats.map(([n, l]) => (
             <div key={l} className="py-10 px-6 first:pl-0">
               <div className="font-display text-4xl md:text-5xl text-accent">{n}</div>
-              <div className="mt-2 text-xs uppercase tracking-[0.15em] text-muted-foreground leading-relaxed">{l}</div>
+              <div className="mt-2 text-sm text-muted-foreground leading-relaxed">{l}</div>
             </div>
           ))}
         </div>
@@ -221,11 +203,27 @@ function Index() {
         </p>
       </section>
 
+      <section id="see-it" className="relative py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-3xl mb-16">
+            <Eyebrow>What your customers see</Eyebrow>
+            <h2 className="font-display text-4xl md:text-5xl leading-[1.05] mb-6">
+              The call you missed becomes a booked job.
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              These texts go out from your business on autopilot. You see every conversation on your phone and can jump in anytime.
+            </p>
+          </div>
+          <CustomerViewPhones />
+          <p className="mt-10 text-center text-xs text-muted-foreground/70">Example messages. Your business name, tone and review link go in during setup.</p>
+        </div>
+      </section>
+
       <section id="packages" className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-12 gap-12 mb-16">
             <div className="md:col-span-6">
-              <Eyebrow>§ 01 — Packages</Eyebrow>
+              <Eyebrow>Packages</Eyebrow>
               <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
                 Fixed prices. No surprises.
               </h2>
@@ -254,6 +252,7 @@ function Index() {
               </div>
               <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground mt-2">No setup · 3-month minimum</div>
               <div className="text-xs text-muted-foreground mt-1">Separately: $591/mo + $794 setup</div>
+              <div className="text-xs text-accent mt-2">Taking 3 founding clients in Kansas City this fall.</div>
               <a href="https://buy.stripe.com/9B6fZa2yT88t7H15hSdnW04" className="mt-5 inline-flex items-center justify-center bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all whitespace-nowrap">
                 Start the Growth Plan →
               </a>
@@ -282,7 +281,7 @@ function Index() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
             <div>
-              <Eyebrow>§ 02 — AI Search Visibility</Eyebrow>
+              <Eyebrow>AI search visibility</Eyebrow>
               <h2 className="font-display text-4xl md:text-5xl leading-[1.05] mb-8">
                 Homeowners are asking AI who to call. <span className="text-accent">Does it say your name?</span>
               </h2>
@@ -308,58 +307,12 @@ function Index() {
         </div>
       </section>
 
-      <section id="services" className="relative py-24 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-12 gap-12 mb-20">
-            <div className="md:col-span-5">
-              <Eyebrow>§ 03 — Custom work</Eyebrow>
-              <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
-                Need something the packages don't cover?
-              </h2>
-            </div>
-            <div className="md:col-span-6 md:col-start-7 flex items-end">
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                We don't sell shelfware. Every engagement begins with your workflow — the specifics, the exceptions, the corners cut by people who know the job. Then we build the system around it.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-px bg-border">
-            {services.map((s) => (
-              <div key={s.n} className="bg-background p-10 md:p-12 group hover:bg-card transition-colors">
-                <div className="flex items-start justify-between mb-8">
-                  <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">{s.n}</span>
-                  <span className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-                <h3 className="font-display text-2xl mb-4">{s.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{s.body}</p>
-              </div>
-            ))}
-            <div className="md:col-span-2 bg-primary/5 p-10 md:p-12 grid md:grid-cols-[1fr_auto] gap-8 items-center">
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">05</span>
-                  <span className="rounded-full bg-primary text-primary-foreground font-mono text-[10px] tracking-[0.15em] px-2 py-0.5">NEW</span>
-                </div>
-                <h3 className="font-display text-2xl mb-4">AI Search Visibility</h3>
-                <p className="text-muted-foreground leading-relaxed max-w-3xl">
-                  Homeowners now ask ChatGPT and Google's AI who to hire. We test those answers for your trade and town, show you who gets named instead, and fix why.
-                </p>
-              </div>
-              <a href="#visibility" className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-medium text-sm hover:bg-accent hover:text-accent-foreground transition-all whitespace-nowrap">
-                See how it works →
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="process" className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-20 max-w-3xl">
-            <Eyebrow>§ 04 — Process</Eyebrow>
+            <Eyebrow>How it works</Eyebrow>
             <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">
-              Four steps. No theater.
+              Four steps, all by email.
             </h2>
           </div>
 
@@ -378,7 +331,7 @@ function Index() {
       <section id="faq" className="relative py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
-            <Eyebrow>§ 05 — FAQ</Eyebrow>
+            <Eyebrow>FAQ</Eyebrow>
             <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">Straight answers.</h2>
           </div>
           <div className="md:col-span-8 divide-y divide-border border-y border-border">
@@ -395,39 +348,12 @@ function Index() {
         </div>
       </section>
 
-      <section id="principles" className="relative py-24 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-16">
-          <div className="md:col-span-5 md:sticky md:top-24 self-start">
-            <Eyebrow>§ 06 — Principles</Eyebrow>
-            <h2 className="font-display text-4xl md:text-5xl leading-[1.05] mb-8">
-              How we think about your systems.
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Automation should be quiet infrastructure — reliable, understandable, and yours to keep. We build to that standard.
-            </p>
-          </div>
-          <div className="md:col-span-7 space-y-10">
-            {[
-              ["Tailored, never templated.", "Your business isn't a use case. Every system we deliver is designed against your actual operations, tools, and edge cases."],
-              ["Human in the loop.", "AI is a tool, not a replacement. We design workflows where your team stays in control of the decisions that matter."],
-              ["Your data stays yours.", "Your leads, reviews, and customer records belong to you. Cancel anytime and we hand everything over. Custom builds live in accounts you own."],
-              ["Measured in hours saved.", "The number we care about is the one on your team's calendar. Everything else is decoration."],
-            ].map(([t, d]) => (
-              <div key={t} className="border-l-2 border-primary/40 pl-6 py-1">
-                <h3 className="font-display text-2xl mb-2">{t}</h3>
-                <p className="text-muted-foreground leading-relaxed">{d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="start" className="relative py-24 border-t border-border overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
           <div>
-            <Eyebrow>§ 07 — Start</Eyebrow>
+            <Eyebrow>Get started</Eyebrow>
             <h2 className="font-display text-4xl md:text-6xl leading-[1.02] mb-8">
-              Let's find your <span className="text-accent">black line.</span>
+              Tell us what <span className="text-accent">eats your week.</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed">
               Tell us what eats your week. You'll get a written scope and a fixed price within one business day — no call, no pitch deck.
@@ -461,6 +387,15 @@ function Index() {
       </section>
 
       <SiteFooter />
+
+      <div className="md:hidden fixed bottom-0 inset-x-0 z-50 border-t border-border bg-background/95 backdrop-blur-md px-4 py-3 grid grid-cols-2 gap-3">
+        <a href="#scan" className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground py-3 text-sm font-semibold">
+          Free AI scan
+        </a>
+        <a href="tel:+18163157562" className="inline-flex items-center justify-center rounded-md border border-border py-3 text-sm font-semibold">
+          Call 816-315-7562
+        </a>
+      </div>
     </div>
   );
 }
