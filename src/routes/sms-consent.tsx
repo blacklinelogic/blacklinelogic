@@ -157,6 +157,10 @@ function SmsConsentPage() {
               <Link to="/terms" className="text-foreground underline underline-offset-4">
                 Terms and Conditions
               </Link>
+              , and the full{" "}
+              <Link to="/sms-terms" className="text-foreground underline underline-offset-4">
+                SMS Terms and Conditions
+              </Link>
               .
             </p>
           </section>

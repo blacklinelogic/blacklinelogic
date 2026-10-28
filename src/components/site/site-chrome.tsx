@@ -84,7 +84,10 @@ export function SiteFooter() {
             TERMS
           </Link>
           <Link to="/sms-consent" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
-            SMS
+            SMS OPT-IN
+          </Link>
+          <Link to="/sms-terms" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
+            SMS TERMS
           </Link>
         </div>
       </div>
