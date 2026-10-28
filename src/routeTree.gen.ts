@@ -14,6 +14,7 @@ import { Route as ElectriciansRouteImport } from './routes/electricians'
 import { Route as PlumbersRouteImport } from './routes/plumbers'
 import { Route as HvacRouteImport } from './routes/hvac'
 import { Route as RoofersRouteImport } from './routes/roofers'
+import { Route as SampleScanRouteImport } from './routes/sample-scan'
 import { Route as SmsConsentRouteImport } from './routes/sms-consent'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as AiVisibilityRouteImport } from './routes/ai-visibility'
@@ -37,6 +38,11 @@ const PlumbersRoute = PlumbersRouteImport.update({
 const HvacRoute = HvacRouteImport.update({
   id: '/hvac',
   path: '/hvac',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SampleScanRoute = SampleScanRouteImport.update({
+  id: '/sample-scan',
+  path: '/sample-scan',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RoofersRoute = RoofersRouteImport.update({
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/plumbers': typeof PlumbersRoute
   '/hvac': typeof HvacRoute
   '/roofers': typeof RoofersRoute
+  '/sample-scan': typeof SampleScanRoute
   '/sms-consent': typeof SmsConsentRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/plumbers': typeof PlumbersRoute
   '/hvac': typeof HvacRoute
   '/roofers': typeof RoofersRoute
+  '/sample-scan': typeof SampleScanRoute
   '/sms-consent': typeof SmsConsentRoute
 }
 export interface FileRoutesById {
@@ -97,14 +105,15 @@ export interface FileRoutesById {
   '/plumbers': typeof PlumbersRoute
   '/hvac': typeof HvacRoute
   '/roofers': typeof RoofersRoute
+  '/sample-scan': typeof SampleScanRoute
   '/sms-consent': typeof SmsConsentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent' | '/electricians' | '/plumbers' | '/hvac' | '/roofers'
+  fullPaths: '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent' | '/electricians' | '/plumbers' | '/hvac' | '/roofers' | '/sample-scan'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent' | '/electricians' | '/plumbers' | '/hvac' | '/roofers'
-  id: '__root__' | '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent' | '/electricians' | '/plumbers' | '/hvac' | '/roofers'
+  to: '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent' | '/electricians' | '/plumbers' | '/hvac' | '/roofers' | '/sample-scan'
+  id: '__root__' | '/' | '/ai-visibility' | '/privacy' | '/terms' | '/sms-consent' | '/electricians' | '/plumbers' | '/hvac' | '/roofers' | '/sample-scan'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -116,6 +125,7 @@ export interface RootRouteChildren {
   PlumbersRoute: typeof PlumbersRoute
   HvacRoute: typeof HvacRoute
   RoofersRoute: typeof RoofersRoute
+  SampleScanRoute: typeof SampleScanRoute
   SmsConsentRoute: typeof SmsConsentRoute
 }
 
@@ -147,6 +157,13 @@ declare module '@tanstack/react-router' {
       path: '/hvac'
       fullPath: '/hvac'
       preLoaderRoute: typeof HvacRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sample-scan': {
+      id: '/sample-scan'
+      path: '/sample-scan'
+      fullPath: '/sample-scan'
+      preLoaderRoute: typeof SampleScanRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/roofers': {
@@ -196,6 +213,7 @@ const rootRouteChildren: RootRouteChildren = {
   PlumbersRoute: PlumbersRoute,
   HvacRoute: HvacRoute,
   RoofersRoute: RoofersRoute,
+  SampleScanRoute: SampleScanRoute,
   SmsConsentRoute: SmsConsentRoute,
 }
 export const routeTree = rootRouteImport

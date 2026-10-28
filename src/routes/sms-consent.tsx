@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import logoAsset from "@/assets/blacklinelogic_logo.png";
+import { SiteHeader, SiteFooter } from "@/components/site/site-chrome";
 
 export const Route = createFileRoute("/sms-consent")({
   head: () => ({
@@ -55,31 +55,10 @@ function Heading({ children }: { children: ReactNode }) {
 function SmsConsentPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/50">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <img
-              src={logoAsset}
-              alt="BlackLine Logic"
-              width={32}
-              height={32}
-              className="w-8 h-8 object-contain"
-            />
-            <span className="font-mono text-[13px] tracking-[0.2em] uppercase hidden sm:inline">
-              BlackLine<span className="text-primary">.</span>Logic
-            </span>
-          </Link>
-          <Link
-            to="/"
-            className="text-[13px] text-muted-foreground hover:text-foreground transition-colors"
-          >
-            ← Back to site
-          </Link>
-        </div>
-      </header>
+      <SiteHeader nav={[{ href: "/", label: "Home" }, { href: "/#packages", label: "Packages" }]} cta={{ href: "/#scan", label: "Free AI scan" }} />
 
       <main className="max-w-3xl mx-auto px-6 pt-32 pb-24">
-        <div className="font-mono text-[11px] tracking-[0.25em] uppercase text-primary mb-6">
+        <div className="text-xs font-semibold tracking-[0.12em] uppercase text-primary mb-5">
           Legal
         </div>
         <h1 className="font-display text-5xl md:text-6xl leading-[1] mb-6">
@@ -184,22 +163,7 @@ function SmsConsentPage() {
         </div>
       </main>
 
-      <footer className="border-t border-border py-10">
-        <div className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-xs text-muted-foreground font-mono tracking-wider">
-          <span>© {new Date().getFullYear()} BLACKLINE LOGIC</span>
-          <div className="flex items-center gap-5">
-            <Link to="/privacy" className="hover:text-foreground transition-colors">
-              PRIVACY
-            </Link>
-            <Link to="/terms" className="hover:text-foreground transition-colors">
-              TERMS
-            </Link>
-            <Link to="/" className="hover:text-foreground transition-colors">
-              HOME
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
