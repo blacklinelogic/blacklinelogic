@@ -77,6 +77,9 @@ export function SiteFooter() {
           <Link to="/electricians" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
             ELECTRICIANS
           </Link>
+          <Link to="/contact" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
+            CONTACT
+          </Link>
           <Link to="/privacy" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">
             PRIVACY
           </Link>

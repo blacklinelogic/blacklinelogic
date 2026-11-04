@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { SiteHeader, SiteFooter } from "@/components/site/site-chrome";
+import { TextMeBackForm, WEB_CONSENT_TEXT } from "@/components/site/text-me-back";
 
 export const Route = createFileRoute("/sms-consent")({
   head: () => ({
@@ -9,7 +10,7 @@ export const Route = createFileRoute("/sms-consent")({
       {
         name: "description",
         content:
-          "How callers opt in to text messages from BlackLine Logic LLC, what messages they receive, and how to opt out.",
+          "How people opt in to text messages from BlackLine Logic LLC (by phone or on our website), what messages they receive, and how to opt out.",
       },
       { property: "og:title", content: "SMS Opt-In and Messaging Terms — BlackLine Logic" },
       { property: "og:type", content: "article" },
@@ -66,13 +67,14 @@ function SmsConsentPage() {
         </h1>
         <div className="flex flex-wrap gap-x-8 gap-y-1 font-mono text-[11px] tracking-[0.15em] uppercase text-muted-foreground border-b border-border pb-8 mb-10">
           <span>BlackLine Logic LLC</span>
-          <span>Last updated: October 25, 2026</span>
+          <span>Last updated: November 3, 2026</span>
         </div>
 
         <p className="text-muted-foreground leading-relaxed">
-          BlackLine Logic LLC sends customer care text messages only to people who call our business
-          phone number, cannot be answered, and agree to receive texts by pressing 1 after hearing the
-          disclosure below. We do not send marketing or promotional texts, and we never buy, rent, or
+          BlackLine Logic LLC sends customer care text messages only to people who agree to receive them,
+          in one of two ways: by pressing 1 after hearing the disclosure below when they call our business
+          phone number and we cannot answer, or by checking the optional, unchecked-by-default SMS consent
+          box on our website contact form. We do not send marketing or promotional texts, and we never buy, rent, or
           share phone numbers.
         </p>
 
@@ -89,9 +91,20 @@ function SmsConsentPage() {
           </p>
         </div>
 
+        <div className="mt-6 rounded-lg border border-border px-5 py-5">
+          <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-primary mb-3">
+            Website consent checkbox (exact text)
+          </div>
+          <p className="text-foreground leading-relaxed">“{WEB_CONSENT_TEXT} See our SMS Terms and Privacy Policy.”</p>
+          <p className="text-muted-foreground text-sm leading-relaxed mt-3">
+            The box is optional and unchecked by default. Leaving it unchecked still lets you submit the form; we then
+            reply by phone or email only.
+          </p>
+        </div>
+
         <div className="mt-14 space-y-14">
           <section>
-            <Heading>How callers opt in</Heading>
+            <Heading>Method 1: By phone (press 1)</Heading>
             <div className="space-y-6">
               {steps.map((s) => (
                 <div key={s.label}>
@@ -102,6 +115,20 @@ function SmsConsentPage() {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section>
+            <Heading>Method 2: On our website</Heading>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Anyone can request a reply on our{" "}
+              <Link to="/contact" className="text-foreground underline underline-offset-4">
+                contact page
+              </Link>{" "}
+              (also shown below). They enter their name, mobile number and request, and may check the SMS consent
+              box. Only people who check the box receive texts; each submission is logged with the number, the consent
+              choice and the date and time. The first text confirms enrollment and repeats the disclosures.
+            </p>
+            <TextMeBackForm />
           </section>
 
           <section>

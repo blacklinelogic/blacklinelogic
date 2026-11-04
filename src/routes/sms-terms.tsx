@@ -9,7 +9,7 @@ export const Route = createFileRoute("/sms-terms")({
       {
         name: "description",
         content:
-          "Terms for the BlackLine Logic Customer Care text messaging program: how to opt in, message frequency, rates, STOP and HELP, and privacy.",
+          "Terms for the BlackLine Logic Customer Care text messaging program: how to opt in by phone or online, message frequency, rates, STOP and HELP, and privacy.",
       },
       { property: "og:title", content: "SMS Terms and Conditions — BlackLine Logic" },
       { property: "og:type", content: "article" },
@@ -38,7 +38,7 @@ function SmsTermsPage() {
         <div className="flex flex-wrap gap-x-8 gap-y-1 text-sm text-muted-foreground border-b border-border pb-8 mb-10">
           <span>Program: BlackLine Logic Customer Care</span>
           <span>Operated by BlackLine Logic LLC, Kansas City, Missouri</span>
-          <span>Last updated: October 28, 2026</span>
+          <span>Last updated: November 3, 2026</span>
         </div>
 
         <div className="space-y-10">
@@ -56,7 +56,12 @@ function SmsTermsPage() {
               When a call to 816-315-7562 is not answered, an automated voice message identifies BlackLine Logic, explains
               the texts you would receive, and reads these terms in short form (message type, frequency, message and data
               rates, STOP and HELP). You agree to receive texts only by pressing 1 on your keypad. If you press any other
-              key or hang up, no text is sent. Your consent is given to BlackLine Logic LLC only. Consent is not a condition
+              key or hang up, no text is sent. You can also opt in on our{" "}
+              <Link to="/contact" className="text-foreground underline underline-offset-4">
+                contact page
+              </Link>{" "}
+              by checking the optional SMS consent box, which is unchecked by default; if you leave it unchecked, we
+              reply by phone or email only. Your consent is given to BlackLine Logic LLC only. Consent is not a condition
               of any purchase. Full details of the opt-in process are on our{" "}
               <Link to="/sms-consent" className="text-foreground underline underline-offset-4">
                 SMS opt-in page
