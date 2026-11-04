@@ -3,8 +3,8 @@ import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/logo-wide.png";
 
 export const CONTACT_EMAIL = "info@blacklinelogic.com";
-export const CONTACT_PHONE = "816-315-7562";
-export const CONTACT_PHONE_TEL = "+18163157562";
+export const CONTACT_PHONE = "816-327-2628";
+export const CONTACT_PHONE_TEL = "+18163272628";
 
 type NavItem = { href: string; label: string };
 
@@ -59,7 +59,7 @@ export function SiteFooter() {
         </div>
         <div className="flex flex-wrap items-center gap-5">
           <a href={`tel:${CONTACT_PHONE_TEL}`} className="hover:text-foreground transition-colors">
-            CALL OR TEXT {CONTACT_PHONE}
+            CALL {CONTACT_PHONE}
           </a>
           <span>{CONTACT_EMAIL}</span>
           <Link to="/ai-visibility" className="text-[10px] text-muted-foreground/60 hover:text-foreground transition-colors">

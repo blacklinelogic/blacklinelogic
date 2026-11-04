@@ -9,7 +9,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Tell BlackLine Logic what you need and we'll get back to you by text, phone or email. Kansas City, 816-315-7562.",
+          "Tell BlackLine Logic what you need and we'll get back to you by text, phone or email. Kansas City, 816-327-2628.",
       },
       { property: "og:title", content: "Contact BlackLine Logic" },
     ],
@@ -26,7 +26,7 @@ function ContactPage() {
         <h1 className="font-display text-4xl md:text-5xl leading-[1.05] mb-4">Request a callback or a text</h1>
         <p className="text-muted-foreground leading-relaxed mb-10">
           Tell us what you need. We'll reply by text if you check the box below, otherwise by phone or email. Prefer to
-          talk now? Call 816-315-7562 or email info@blacklinelogic.com.
+          talk now? Call 816-327-2628 or email info@blacklinelogic.com.
         </p>
         <TextMeBackForm />
       </main>
