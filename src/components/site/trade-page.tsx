@@ -30,7 +30,7 @@ export function tradeHead(t: Trade) {
           "@context": "https://schema.org",
           "@type": "Service",
           name: `AI search visibility and lead automation for ${t.trade}`,
-          provider: { "@type": "ProfessionalService", name: "BlackLine Logic", url: "https://blacklinelogic.com", telephone: "+1-816-315-7562" },
+          provider: { "@type": "ProfessionalService", name: "BlackLine Logic", url: "https://blacklinelogic.com", telephone: "+1-816-327-2628" },
           areaServed: { "@type": "City", name: "Kansas City" },
           audience: { "@type": "BusinessAudience", audienceType: t.tradeTitle },
         }),

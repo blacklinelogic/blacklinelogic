@@ -15,7 +15,7 @@ const businessSchema = {
   url: "https://blacklinelogic.com",
   logo: "https://blacklinelogic.com/blacklinelogic_logo.png",
   email: "info@blacklinelogic.com",
-  telephone: "+1-816-315-7562",
+  telephone: "+1-816-327-2628",
   description:
     "Kansas City AI automation studio for home-service contractors: missed-call text-back, automated Google review requests, AI search visibility (ChatGPT, Gemini, Google AI Mode), and custom workflow automation.",
   address: { "@type": "PostalAddress", addressLocality: "Kansas City", addressRegion: "MO", addressCountry: "US" },
@@ -168,8 +168,8 @@ function Index() {
                 See packages and prices
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
-              <a href="tel:+18163157562" className="inline-flex items-center gap-3 px-6 py-3.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                Or call 816-315-7562
+              <a href="tel:+18163272628" className="inline-flex items-center gap-3 px-6 py-3.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                Or call 816-327-2628
               </a>
             </div>
           </div>
@@ -425,8 +425,8 @@ function Index() {
         <a href="#scan" className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground py-3 text-sm font-semibold">
           Free AI scan
         </a>
-        <a href="tel:+18163157562" className="inline-flex items-center justify-center rounded-md border border-border py-3 text-sm font-semibold">
-          Call 816-315-7562
+        <a href="tel:+18163272628" className="inline-flex items-center justify-center rounded-md border border-border py-3 text-sm font-semibold">
+          Call 816-327-2628
         </a>
       </div>
     </div>

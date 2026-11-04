@@ -45,7 +45,7 @@ function SmsTermsPage() {
           <Section title="1. Program description">
             <p>
               BlackLine Logic Customer Care is a text messaging program operated by BlackLine Logic LLC. We send conversational
-              customer-care text messages to people who called our business phone number, 816-315-7562, could not be
+              customer-care text messages to people who called our business phone number, 816-327-2628, could not be
               answered, and agreed to receive texts. Messages are about the caller's own request, such as a quote,
               scheduling, or a service question. We do not send marketing or promotional text messages in this program.
             </p>
@@ -53,7 +53,7 @@ function SmsTermsPage() {
 
           <Section title="2. How you opt in">
             <p>
-              When a call to 816-315-7562 is not answered, an automated voice message identifies BlackLine Logic, explains
+              When a call to 816-327-2628 is not answered, an automated voice message identifies BlackLine Logic, explains
               the texts you would receive, and reads these terms in short form (message type, frequency, message and data
               rates, STOP and HELP). You agree to receive texts only by pressing 1 on your keypad. If you press any other
               key or hang up, no text is sent. You can also opt in on our{" "}
@@ -94,7 +94,7 @@ function SmsTermsPage() {
           <Section title="6. How to get help">
             <p>
               Reply <strong className="text-foreground">HELP</strong> to any message for help. You can also email
-              info@blacklinelogic.com or call 816-315-7562.
+              info@blacklinelogic.com or call 816-327-2628.
             </p>
           </Section>
 
@@ -120,7 +120,7 @@ function SmsTermsPage() {
           <Section title="9. Contact">
             <p>
               BlackLine Logic LLC, 215 W Pershing Rd, Ste 403 PMB 1081, Kansas City, MO 64108. Email info@blacklinelogic.com
-              or call 816-315-7562.
+              or call 816-327-2628.
             </p>
           </Section>
         </div>

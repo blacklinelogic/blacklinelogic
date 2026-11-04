@@ -671,7 +671,7 @@ export const terms: { intro: PolicyBlock[]; sections: PolicySection[] } = {
         },
         {
           "type": "p",
-          "text": "BlackLine Logic SMS program: BlackLine Logic LLC sends conversational customer-care text messages to people who call our business phone number (816-315-7562), cannot be answered, and agree to receive texts by pressing 1 after hearing an automated disclosure. The first message confirms the missed call and asks how we can help; if there is no reply, up to two follow-up messages may be sent, at least 24 hours apart, between 9am and 7pm Central. Message frequency varies. Message and data rates may apply. Reply STOP at any time to stop receiving messages, or HELP for help. For support, contact info@blacklinelogic.com or 816-315-7562. Carriers are not liable for delayed or undelivered messages. Full program terms are at blacklinelogic.com/sms-terms. See our Privacy Policy at blacklinelogic.com/privacy and opt-in details at blacklinelogic.com/sms-consent."
+          "text": "BlackLine Logic SMS program: BlackLine Logic LLC sends conversational customer-care text messages to people who call our business phone number (816-327-2628), cannot be answered, and agree to receive texts by pressing 1 after hearing an automated disclosure. The first message confirms the missed call and asks how we can help; if there is no reply, up to two follow-up messages may be sent, at least 24 hours apart, between 9am and 7pm Central. Message frequency varies. Message and data rates may apply. Reply STOP at any time to stop receiving messages, or HELP for help. For support, contact info@blacklinelogic.com or 816-327-2628. Carriers are not liable for delayed or undelivered messages. Full program terms are at blacklinelogic.com/sms-terms. See our Privacy Policy at blacklinelogic.com/privacy and opt-in details at blacklinelogic.com/sms-consent."
         }
       ]
     },
@@ -1186,7 +1186,7 @@ export const terms: { intro: PolicyBlock[]; sections: PolicySection[] } = {
         },
         {
           "type": "p",
-          "text": "Phone: 816-315-7562"
+          "text": "Phone: 816-327-2628"
         },
         {
           "type": "p",
@@ -1314,7 +1314,7 @@ export const terms: { intro: PolicyBlock[]; sections: PolicySection[] } = {
         },
         {
           "type": "p",
-          "text": "Phone: 816-315-7562"
+          "text": "Phone: 816-327-2628"
         },
         {
           "type": "p",

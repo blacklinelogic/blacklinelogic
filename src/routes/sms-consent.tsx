@@ -26,7 +26,7 @@ const CONSENT_SCRIPT =
 const steps: { label: string; body: string }[] = [
   {
     label: "1. The caller contacts us",
-    body: "A person calls BlackLine Logic LLC at our business phone number, 816-315-7562, shown in the header and footer of every page of this website.",
+    body: "A person calls BlackLine Logic LLC at our business phone number, 816-327-2628, shown in the header and footer of every page of this website.",
   },
   {
     label: "2. The caller hears the full SMS disclosure",
@@ -38,7 +38,7 @@ const steps: { label: string; body: string }[] = [
   },
   {
     label: "4. Confirmation and conversation",
-    body: "After pressing 1, the caller hears “Thank you. We are texting you now.” and receives one customer care text from our texting number, 816-327-2628, that repeats the disclosures. If they do not reply, we may send up to two follow-ups, at least 24 hours apart, between 9am and 7pm Central. Replying STOP ends all messages immediately.",
+    body: "After pressing 1, the caller hears “Thank you. We are texting you now.” and receives one customer care text from the same number, 816-327-2628, that repeats the disclosures. If they do not reply, we may send up to two follow-ups, at least 24 hours apart, between 9am and 7pm Central. Replying STOP ends all messages immediately.",
   },
 ];
 
@@ -46,7 +46,7 @@ const samples = [
   "Hi, this is BlackLine Logic. Sorry we missed your call! How can we help with your request?\n\nBlackLine Logic customer care: up to 3 msgs about your call. Msg & data rates may apply. Reply HELP for help, STOP to opt out.",
   "Hi, just following up from BlackLine Logic. Still need a hand? Reply here and we'll get right back to you. Reply STOP to opt out.",
   "BlackLine Logic: You have been unsubscribed and will receive no further messages. Reply START to resubscribe.",
-  "BlackLine Logic: For help, email info@blacklinelogic.com or call 816-315-7562. Msg frequency varies. Msg & data rates may apply. Reply STOP to opt out.",
+  "BlackLine Logic: For help, email info@blacklinelogic.com or call 816-327-2628. Msg frequency varies. Msg & data rates may apply. Reply STOP to opt out.",
 ];
 
 function Heading({ children }: { children: ReactNode }) {
@@ -83,9 +83,9 @@ function SmsConsentPage() {
             Consent statement
           </div>
           <p className="text-foreground leading-relaxed">
-            By pressing 1 after calling 816-315-7562, you agree to receive customer care text messages
+            By pressing 1 after calling 816-327-2628, you agree to receive customer care text messages
             from BlackLine Logic LLC about your call and request (such as quotes, scheduling, and
-            service questions). Texts are sent from 816-327-2628. Up to 3 messages per missed call; message frequency varies. Msg &amp;
+            service questions). Texts are sent from the same number. Up to 3 messages per missed call; message frequency varies. Msg &amp;
             data rates may apply. Reply STOP to opt out at any time. Reply HELP for help. Consent is
             not a condition of any purchase.
           </p>
@@ -165,7 +165,7 @@ function SmsConsentPage() {
                 "Message frequency varies; up to 3 messages per missed call unless you continue the conversation.",
                 "Message and data rates may apply.",
                 "Reply STOP to opt out at any time. Reply HELP for help.",
-                "Support: info@blacklinelogic.com or 816-315-7562.",
+                "Support: info@blacklinelogic.com or 816-327-2628.",
                 "Carriers are not liable for delayed or undelivered messages.",
                 "No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging opt-in data and consent will not be shared with any third parties.",
               ].map((it) => (
